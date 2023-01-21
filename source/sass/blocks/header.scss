@@ -1,0 +1,24 @@
+.header {
+  position: relative;
+  border-bottom: 1px solid $border-color;
+  &__logo {
+    display: inline-block;
+    padding: 17px;
+    font-weight: 450;
+    font-size: 16px;
+    line-height: 21px;
+    color: $grey;
+    max-width: 311px;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .header {
+    display: flex;
+    &__logo {
+      border-right: 1px solid $border-color;
+      width: 20vw;
+      padding-left: 22px;
+    }
+  }
+}

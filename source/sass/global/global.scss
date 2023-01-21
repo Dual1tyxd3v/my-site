@@ -1,0 +1,48 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: "Fira Code";
+  background-color: #010C15 ;
+  padding: 15px;
+}
+
+.container {
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  background-color: #011627;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 95vh;
+  background-image: url("../img/bg-mobile.png");
+  background-position: center;
+  &--withoutBG {
+    background-image: none;
+  }
+}
+
+
+@media (min-width: $desktop-width) {
+  .container {
+    max-width: 1782px;
+    max-height: 941px;
+    margin: 0 auto;
+    background-image: url("../img/bg-desktop.png");
+  background-position: right;
+  }
+}

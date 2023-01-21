@@ -1,0 +1,80 @@
+.footer {
+  border-top: 1px solid $border-color;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  &__text {
+    padding: 13px 0 15px 18px;
+    font-weight: 450;
+    font-size: 16px;
+    line-height: 21px;
+    color: $grey;
+  }
+  &__list {
+    display: flex;
+    height: inherit;
+    & li {
+      border-left: 1px solid $border-color;
+    }
+  }
+  &__item {
+    display: inline-block;
+    font-size: 0;
+    width: 52px;
+    height: 49px;
+    padding: 12.5px 14px;
+    background-size: 24px 24px;
+    background-position: center;
+    opacity: 0.4;
+    &:hover {
+      opacity: 1;
+    }
+    &--vk {
+      background-image: url("../img/icon-vk.svg");
+    }
+    &--github {
+      background-image: url("../img/icon-git.svg");
+    }
+  }
+}
+
+.header--opened ~ .footer {
+  display: flex;
+}
+
+@media (min-width: $desktop-width) {
+  .footer {
+    display: flex;
+    &__text {
+      display: inline-block;
+      height: 53px;
+      padding-left: 22px;
+      padding-right: 18px;
+      border-right: 1px solid $border-color;
+    }
+    &__list {
+      justify-content: flex-start;
+      flex-grow: 1;
+      padding-right: 24px;
+      & li {
+        border-left: none;
+        border-right: 1px solid $border-color;
+        &:last-child {
+          margin-left: auto;
+          border-right: none;
+          border-left: 1px solid $border-color;
+          & a {
+            width: auto;
+            text-align: center;
+            padding: 15px 30px 12px 23px;
+            color: $grey;
+            font-weight: 450;
+            font-size: 16px;
+            line-height: 21px;
+            background-position-x: right;
+          }
+        }
+      }
+    }
+  }
+}
