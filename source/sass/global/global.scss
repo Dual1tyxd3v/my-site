@@ -36,6 +36,13 @@ body {
   }
 }
 
+.page-title {
+  padding: 21px 27px 29px;
+  font-weight: 450;
+  font-size: 14px;
+  line-height: 140%;
+  color: #fff;
+}
 
 @media (min-width: $desktop-width) {
   .container {
@@ -44,5 +51,8 @@ body {
     margin: 0 auto;
     background-image: url("../img/bg-desktop.png");
   background-position: right;
+  }
+  .page-title {
+    display: none;
   }
 }

@@ -38,7 +38,8 @@
   }
 }
 
-.header--opened ~ .footer {
+.header--opened ~ .footer,
+.about ~ .footer {
   display: flex;
 }
 
