@@ -34,7 +34,7 @@ subListBtns.forEach((btn) => {
 });
 //
 // форматирование текста с описанием
-textWrapper.addEventListener('resize', formatText);
+textWrapper && textWrapper.addEventListener('resize', formatText);
 
 formatText();
 function formatText() {
