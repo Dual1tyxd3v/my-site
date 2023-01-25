@@ -1,0 +1,45 @@
+.content {
+  &__title {
+    text-transform: capitalize;
+    font-weight: 450;
+    font-size: 16px;
+    line-height: 140%;
+    color: #fff;
+    margin-bottom: 29px;
+  }
+  &__subtitle {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: #5565E8;
+    margin-bottom: 14px;
+  }
+  &__img {
+    max-width: 500px;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .content {
+    &__header {
+      height: 50px;
+      border-bottom: 1px solid $border-color;
+    }
+    &__title {
+      padding: 18px 40px 0 40px;
+      display: inline-block;
+      font-size: 18px;
+      line-height: 24px;
+      color: $grey;
+      margin-bottom: 30px;
+    }
+    &__container {
+      padding: 0 40px;
+      margin: 0 auto;
+      max-width: 580px;
+    }
+    &__subtitle {
+      margin-bottom: 30px;
+    }
+  }
+}

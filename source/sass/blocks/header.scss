@@ -17,7 +17,9 @@
     display: flex;
     &__logo {
       border-right: 1px solid $border-color;
-      width: 20vw;
+      max-width: 311px;
+      width: 17.45%;
+      min-width: 244px;
       padding-left: 22px;
     }
   }

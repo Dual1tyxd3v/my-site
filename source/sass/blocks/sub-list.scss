@@ -5,7 +5,6 @@
     display: block;
   }
   &__button {
-    margin-bottom: 3px;
     padding: 5px 27px;
     display: flex;
     align-items: center;
@@ -27,8 +26,8 @@
       margin-right: 13.5px;
       background-image: url("../img/button-arrow--right.svg");
     }
+
     &--active {
-      margin-bottom: 0;
       &::before {
         background-image: url("../img/button-arrow--down.svg");
         margin-right: 11px;
@@ -98,5 +97,18 @@
     &--contacts {
       fill: #3A49A4;
     }
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .sub-list {
+    &__button {
+      padding: 14px 15px;
+      background-color: transparent;
+      &--active {
+        border-bottom: 1px solid $border-color;
+      }
+    }
+    padding: 18px 0 16px 34px;
   }
 }

@@ -5,6 +5,7 @@
   padding: 0;
   background-repeat: no-repeat;
   box-sizing: border-box;
+  font-family: "Fira Code";
 }
 
 ul {
@@ -16,14 +17,18 @@ a {
 }
 
 body {
-  font-family: "Fira Code";
   background-color: #010C15 ;
   padding: 15px;
 }
-
+img {
+  max-width: 100%;
+  height: auto;
+}
 .container {
   border: 1px solid $border-color;
+  max-width: 900px;
   border-radius: 8px;
+  margin: 0 auto;
   background-color: #011627;
   display: flex;
   flex-direction: column;
@@ -42,6 +47,9 @@ body {
   font-size: 14px;
   line-height: 140%;
   color: #fff;
+}
+.header--opened ~.page-title {
+  display: none;
 }
 
 @media (min-width: $desktop-width) {

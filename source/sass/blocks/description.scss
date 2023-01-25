@@ -1,0 +1,94 @@
+.description {
+  &__header {
+    margin-bottom: 17px;
+    font-weight: 450;
+    font-size: 16px;
+    line-height: 140%;
+    color: #fff;
+  }
+  &__wrapper {
+    display: flex;
+    padding: 0 27px;
+    white-space: pre-wrap;
+  }
+  &--grey {
+    color: $grey;
+  }
+  &__text-wrapper {
+    padding: 0 27px;
+  }
+  &__content {
+    font-weight: 450;
+    font-size: 16px;
+    line-height: 150%;
+    color: $grey;
+  }
+  &__content-prefix {
+    display: none;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .description {
+    border-right: 1px solid $border-color;
+    margin-bottom: 0;
+    &__content {
+      padding-right: 2px;
+      margin-right: 2px;
+      display: flex;
+      align-items: flex-start;
+      font-size: 18px;
+      overflow-y: scroll;
+      height: 780px;
+      &::-webkit-scrollbar {
+        width: 26px;
+        background-color: #011627;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: $grey; /*Цвет ползунка*/
+        width: 24px;
+      }
+    }
+    &__content-prefix {
+      display: block;
+      padding-top: 18px;
+      width: 129px;
+      padding-left: 27px;
+      & div {
+        display: flex;
+      }
+    }
+    &__numbers {
+      margin-right: 36px;
+      display: block !important;
+      width: 33px;
+      text-align: right;
+    }
+    &__text-wrapper {
+      height: 100%;
+      padding-top: 18px;
+      border-right: 1px solid $border-color;
+    }
+    &__stars {
+      width: 33px;
+      white-space: pre;
+    }
+    &__header {
+      display: flex;
+      margin-bottom: 0;
+      border-bottom: 1px solid $border-color;
+    }
+    &__wrapper {
+      padding: 14px 15px;
+      border-right: 1px solid $border-color;
+    }
+    &__prefix {
+      display: none;
+    }
+    &__title {
+      font-weight: 400;
+      line-height: 21px;
+      color: $grey;
+    }
+  }
+}

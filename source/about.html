@@ -34,18 +34,23 @@
         </ul>
       </nav>
     </header>
+
     <p class="page-title">_about-me</p>
+
     <section class="about">
       <div class="about__menu">
         <ul class="about__list">
-          <li>
-            <button class="sub-list__button" type="button">
-              <svg class="sub-list__icon" width="14.44" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path class="sub-list__icon--bio" d="M15.0802 3.61111V12.2778C15.0802 12.4693 15.0041 12.653 14.8687 12.7885C14.7332 12.9239 14.5495 13 14.358 13H1.35796C1.16642 13 0.982719 12.9239 0.847276 12.7885C0.711833 12.653 0.635742 12.4693 0.635742 12.2778V2.88889H14.358C14.5495 2.88889 14.7332 2.96498 14.8687 3.10042C15.0041 3.23587 15.0802 3.41957 15.0802 3.61111ZM8.15696 1.44444H0.635742V0.722222C0.635742 0.530677 0.711833 0.346977 0.847276 0.211534C0.982719 0.076091 1.16642 0 1.35796 0H6.71252L8.15696 1.44444Z" fill="#E99287"/>
-                </svg>
+          <li class="about__item">
+            <button class="sub-list__button sub-list__button--active" type="button">
+              <svg class="sub-list__icon" width="14.44" height="13" viewBox="0 0 16 13" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path class="sub-list__icon--bio"
+                  d="M15.0802 3.61111V12.2778C15.0802 12.4693 15.0041 12.653 14.8687 12.7885C14.7332 12.9239 14.5495 13 14.358 13H1.35796C1.16642 13 0.982719 12.9239 0.847276 12.7885C0.711833 12.653 0.635742 12.4693 0.635742 12.2778V2.88889H14.358C14.5495 2.88889 14.7332 2.96498 14.8687 3.10042C15.0041 3.23587 15.0802 3.41957 15.0802 3.61111ZM8.15696 1.44444H0.635742V0.722222C0.635742 0.530677 0.711833 0.346977 0.847276 0.211534C0.982719 0.076091 1.16642 0 1.35796 0H6.71252L8.15696 1.44444Z"
+                  fill="#E99287" />
+              </svg>
               bio
             </button>
-            <ul class="about__sub-list sub-list">
+            <ul class="about__sub-list sub-list sub-list--opened">
               <li>
                 <a href="education" class="sub-list__item sub-list__item--education">education</a>
               </li>
@@ -57,11 +62,14 @@
               </li>
             </ul>
           </li>
-          <li>
+          <li class="about__item">
             <button class="sub-list__button" type="button">
-              <svg class="sub-list__icon" width="14.44" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path class="sub-list__icon--hobbies" d="M15.0802 3.61111V12.2778C15.0802 12.4693 15.0041 12.653 14.8687 12.7885C14.7332 12.9239 14.5495 13 14.358 13H1.35796C1.16642 13 0.982719 12.9239 0.847276 12.7885C0.711833 12.653 0.635742 12.4693 0.635742 12.2778V2.88889H14.358C14.5495 2.88889 14.7332 2.96498 14.8687 3.10042C15.0041 3.23587 15.0802 3.41957 15.0802 3.61111ZM8.15696 1.44444H0.635742V0.722222C0.635742 0.530677 0.711833 0.346977 0.847276 0.211534C0.982719 0.076091 1.16642 0 1.35796 0H6.71252L8.15696 1.44444Z" fill="#E99287"/>
-                </svg>
+              <svg class="sub-list__icon" width="14.44" height="13" viewBox="0 0 16 13" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path class="sub-list__icon--hobbies"
+                  d="M15.0802 3.61111V12.2778C15.0802 12.4693 15.0041 12.653 14.8687 12.7885C14.7332 12.9239 14.5495 13 14.358 13H1.35796C1.16642 13 0.982719 12.9239 0.847276 12.7885C0.711833 12.653 0.635742 12.4693 0.635742 12.2778V2.88889H14.358C14.5495 2.88889 14.7332 2.96498 14.8687 3.10042C15.0041 3.23587 15.0802 3.41957 15.0802 3.61111ZM8.15696 1.44444H0.635742V0.722222C0.635742 0.530677 0.711833 0.346977 0.847276 0.211534C0.982719 0.076091 1.16642 0 1.35796 0H6.71252L8.15696 1.44444Z"
+                  fill="#E99287" />
+              </svg>
               hobbies
             </button>
             <ul class="about__sub-list sub-list sub-list--hobbies">
@@ -76,11 +84,14 @@
               </li>
             </ul>
           </li>
-          <li>
+          <li class="about__item">
             <button class="sub-list__button" type="button">
-              <svg class="sub-list__icon" width="14.44" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path class="sub-list__icon--contacts" d="M15.0802 3.61111V12.2778C15.0802 12.4693 15.0041 12.653 14.8687 12.7885C14.7332 12.9239 14.5495 13 14.358 13H1.35796C1.16642 13 0.982719 12.9239 0.847276 12.7885C0.711833 12.653 0.635742 12.4693 0.635742 12.2778V2.88889H14.358C14.5495 2.88889 14.7332 2.96498 14.8687 3.10042C15.0041 3.23587 15.0802 3.41957 15.0802 3.61111ZM8.15696 1.44444H0.635742V0.722222C0.635742 0.530677 0.711833 0.346977 0.847276 0.211534C0.982719 0.076091 1.16642 0 1.35796 0H6.71252L8.15696 1.44444Z" fill="#E99287"/>
-                </svg>
+              <svg class="sub-list__icon" width="14.44" height="13" viewBox="0 0 16 13" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path class="sub-list__icon--contacts"
+                  d="M15.0802 3.61111V12.2778C15.0802 12.4693 15.0041 12.653 14.8687 12.7885C14.7332 12.9239 14.5495 13 14.358 13H1.35796C1.16642 13 0.982719 12.9239 0.847276 12.7885C0.711833 12.653 0.635742 12.4693 0.635742 12.2778V2.88889H14.358C14.5495 2.88889 14.7332 2.96498 14.8687 3.10042C15.0041 3.23587 15.0802 3.41957 15.0802 3.61111ZM8.15696 1.44444H0.635742V0.722222C0.635742 0.530677 0.711833 0.346977 0.847276 0.211534C0.982719 0.076091 1.16642 0 1.35796 0H6.71252L8.15696 1.44444Z"
+                  fill="#E99287" />
+              </svg>
               contacts
             </button>
             <ul class="about__sub-list sub-list sub-list--contacts">
@@ -91,11 +102,33 @@
           </li>
         </ul>
       </div>
-      <div class="about__description">
-
+      <div class="about__description description">
+        <div class="description__header">
+          <div class="description__wrapper">
+            <span class="description__prefix">// </span>
+            <h4 class="description__title">bio</h4>
+            <span class="description__prefix description--grey"> / </span>
+            <span class="description__subtitle description--grey"></span>
+          </div>
+        </div>
+        <div class="description__content">
+          <div class="description__content-prefix">
+            <div>
+              <p class="description__numbers">111</p>
+              <p class="description__stars">/**</p>
+            </div>
+          </div>
+          <p class="description__text-wrapper"><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam a veritatis commodi sint repellat iure voluptates, obcaecati illum, id asperiores esse reiciendis deserunt eveniet modi in. Provident temporibus eos ullam. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima delectus facere minus voluptatibus laboriosam dolore accusantium! Amet velit facere veritatis autem voluptatibus labore maxime et, officiis odio? Officia, obcaecati omnis.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore iure quae illum. Et minus id, blanditiis consequatur ex laudantium omnis libero assumenda molestias ipsam beatae quis quasi nam excepturi? Quibusdam!</p>
+        </div>
       </div>
-      <div class="about__content">
-
+      <div class="about__content content">
+        <div class="content__header"></div>
+        <h4 class="content__title">// additional content</h4>
+        <div class="content__container">
+          <h3 class="content__subtitle">@это я</h3>
+          <img class="content__img" src="./img/my-photo.jpg" alt="Моя фотография">
+        </div>
       </div>
     </section>
 
