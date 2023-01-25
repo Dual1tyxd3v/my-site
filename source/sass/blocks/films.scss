@@ -1,0 +1,36 @@
+.films {
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    justify-content: center;
+    grid-gap: 20px;
+  }
+  &__title {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: #5565E8;
+    background-color: #1E2D3D;
+  }
+  &__img {
+    width: 190px;
+    height: 271px;
+  }
+  &__item {
+    display: inline-block;
+    text-align: center;
+    width: 220px;
+    padding-top: 10px;
+    border: 1px solid #1E2D3D;
+    border-radius: 15px;
+    background-color: #011221;
+  }
+  &__text {
+    font-weight: 450;
+    font-size: 14px;
+    line-height: 18px;
+    color: $pink;
+  }
+}

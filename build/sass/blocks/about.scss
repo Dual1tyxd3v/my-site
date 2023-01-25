@@ -28,15 +28,25 @@
       width: 17.45%;
       min-width: 244px;
       border-right: 1px solid $border-color;
+      &--long {
+        width: 21.1%;
+      }
     }
     &__description {
       width: 43.25%;
       max-width: 771px;
+      &--short {
+        width: 400px;
+      }
     }
     &__content {
       width: 39.3%;
       max-width: 700px;
       padding: 0;
+      &--long {
+        max-width: none;
+        width: 100%;
+      }
     }
     &__item {
       border-bottom: 1px solid $border-color;

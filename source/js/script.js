@@ -6,10 +6,15 @@ const textWrapper = document.querySelector('.description__text-wrapper');
 const menuBtns = document.querySelectorAll('.sub-list__button,.sub-list__item,.content__link[data-src]');
 const descriptionTitle = document.querySelector('.description__title');
 const dailyPlaylist = document.querySelector('.daily-playlist');
+const description = document.querySelector('.description');
+const content = document.querySelector('.content');
+const aboutMenu = document.querySelector('.about__menu');
+const filmsBlock = document.querySelector('.content__item[data-src="films"]');
 
 const LETTER_WIDTH = 10.79;
 const PADDING = 54;
 const PREFIX_WIDTH = 129;
+const ZAGONKA__URL = 'http://zagonka.zagonkov.gb.net';
 
 // Кнопка бургера
 menuBtn.addEventListener('click', () => {
@@ -22,7 +27,7 @@ window.addEventListener('resize', () => {
   if (document.documentElement.clientWidth > 999) {
     navigation.classList.remove('header--opened');
   }
-  formatText();
+  window.location.pathname === '/about.html' ? formatText() : null;
 });
 //
 // кнопки меню
@@ -34,9 +39,7 @@ subListBtns.forEach((btn) => {
 });
 //
 // форматирование текста с описанием
-textWrapper && textWrapper.addEventListener('resize', formatText);
-
-formatText();
+window.location.pathname === '/about.html' ? formatText() : null;
 function formatText() {
   const activeContent = document.querySelector('.description__item--active').querySelector('.description__text-wrapper');
   if (activeContent.parentElement.dataset.src === 'music') return;
@@ -76,11 +79,86 @@ menuBtns.forEach((btn) => {
 function changeContent(target) {
   const data = target.dataset.src.split('--')[0];
   descriptionTitle.textContent = data;
+  content.classList.remove('about__content--long');
+  description.classList.remove('about__description--short');
+  description.classList.remove('hide');
+  content.classList.remove('full');
+  aboutMenu.classList.remove('about__menu--long');
+
+  if (data === 'music') {
+    content.classList.add('about__content--long');
+    description.classList.add('about__description--short');
+  }
+  if (data === 'films') {
+    description.classList.add('hide');
+    content.classList.add('full');
+    aboutMenu.classList.add('about__menu--long');
+  }
+
   const postfix = target.dataset.src.split('--')[1] ? '--' + target.dataset.src.split('--')[1] : '';
-  document.querySelector('.description__item--active').classList.remove('description__item--active');
-  document.querySelector(`.description__item[data-src="${data}"`).classList.add('description__item--active');
-  formatText();
+  document.querySelector('.description__item--active') && document.querySelector('.description__item--active').classList.remove('description__item--active');
+
+  document.querySelector(`.description__item[data-src="${data}"`) && document.querySelector(`.description__item[data-src="${data}"`).classList.add('description__item--active');
+
+  document.querySelector('.description__item--active')?.querySelector('.description__content-prefix') && formatText();
 
   document.querySelector('.content__item--active') && document.querySelector('.content__item--active').classList.remove('content__item--active');
   document.querySelector(`.content__item[data-src="${data + postfix}"]`) && document.querySelector(`.content__item[data-src="${data + postfix}"]`).classList.add('content__item--active');
+  if (data === 'films') {
+    loadFilmsCORS();
+  }
 }
+//
+// загрузка списка фильмов
+// -- загрузка с фронта
+async function loadFilmsCORS() {
+  filmsBlock.innerHTML = '<img width="128" src="./img/spinner.svg" style="width: 200px; display: block; margin: 0 auto">';
+  const html = await fetch(ZAGONKA__URL)
+    .then(res => res.text())
+    .then(res => res)
+    .catch(e => loadFilms());
+
+  const div = document.createElement('div');
+  div.innerHTML = html.split('<body')[1];
+
+  const blocks = div.querySelectorAll('.box4');
+  const films = blocks[0];
+  const newSerials = blocks[3];
+  const newSeasons = blocks[4];
+  filmsBlock.innerHTML = '';
+  renderFilms({
+    blocks: [films, newSerials, newSeasons],
+    titles: ['@Zagonka new films', '@Zagonka new serials', '@Zagonka new seasons']
+  });
+}
+// -- загрузка с php
+async function loadFilms() {
+  const data = new FormData();
+  data.set('url', ZAGONKA__URL);
+  return await fetch('content.php', {body: data, method: 'POST'})
+    .then(res => res.text())
+    .then(res => res)
+    .catch(e => alert(e));
+}
+//
+// отрисовка списка фильмов
+function renderFilms({blocks, titles}) {
+  blocks.forEach((block, i) => {
+    const div = document.createElement('div');
+    div.classList.add('films');
+    div.innerHTML = `<p class="films__title">${titles[i]}</p><div class="films__container"></div>`;
+    block.querySelectorAll('.short').forEach((film) => {
+      const imgSrc = ZAGONKA__URL + film.querySelector('img').dataset.srcset.replace(' 190w', '');
+      const title = film.querySelector('a').textContent;
+      const src = ZAGONKA__URL + film.querySelector('a').href.slice(film.querySelector('a').href.lastIndexOf('/'));
+      div.querySelector('.films__container').innerHTML += `
+        <a class="films__item" href="${src}" target="_blank">
+          <img class="films__img" src="${imgSrc}">
+          <p class="films__text">${title}</p>
+        </a>
+      `;
+    });
+    filmsBlock.append(div);
+  });
+}
+//

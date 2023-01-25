@@ -24,6 +24,13 @@ img {
   width: 100%;
   height: auto;
 }
+.hide {
+  display: none;
+}
+.full {
+  width: 100% !important;
+  max-width: none !important;
+}
 .container {
   border: 1px solid $border-color;
   max-width: 900px;

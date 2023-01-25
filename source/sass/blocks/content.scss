@@ -47,6 +47,9 @@
       display: none;
     }
   }
+  &__item[data-src='films']{
+    max-width: none;
+  }
 }
 
 @media (min-width: $desktop-width) {
