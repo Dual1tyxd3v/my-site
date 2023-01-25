@@ -41,7 +41,7 @@
       <div class="about__menu">
         <ul class="about__list">
           <li class="about__item">
-            <button class="sub-list__button sub-list__button--active" type="button">
+            <button class="sub-list__button sub-list__button--active" type="button" data-src="bio">
               <svg class="sub-list__icon" width="14.44" height="13" viewBox="0 0 16 13" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path class="sub-list__icon--bio"
@@ -52,18 +52,19 @@
             </button>
             <ul class="about__sub-list sub-list sub-list--opened">
               <li>
-                <a href="education" class="sub-list__item sub-list__item--education">education</a>
+                <a href="education" class="sub-list__item sub-list__item--education" data-src="education">education</a>
               </li>
               <li>
-                <a href="professionals" class="sub-list__item sub-list__item--professionals">professional-info</a>
+                <a href="professionals" class="sub-list__item sub-list__item--professionals"
+                  data-src="professional-info">professional-info</a>
               </li>
               <li>
-                <a href="interests" class="sub-list__item sub-list__item--interests">interests</a>
+                <a href="interests" class="sub-list__item sub-list__item--interests" data-src="interests">interests</a>
               </li>
             </ul>
           </li>
           <li class="about__item">
-            <button class="sub-list__button" type="button">
+            <button class="sub-list__button" type="button" data-src="hobbies">
               <svg class="sub-list__icon" width="14.44" height="13" viewBox="0 0 16 13" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path class="sub-list__icon--hobbies"
@@ -85,7 +86,7 @@
             </ul>
           </li>
           <li class="about__item">
-            <button class="sub-list__button" type="button">
+            <button class="sub-list__button" type="button" data-src="contacts">
               <svg class="sub-list__icon" width="14.44" height="13" viewBox="0 0 16 13" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path class="sub-list__icon--contacts"
@@ -96,7 +97,7 @@
             </button>
             <ul class="about__sub-list sub-list sub-list--contacts">
               <li>
-                <a href="mailto:d3vilc0re@gmail.com" class="sub-list__item sub-list__item--mail">d3vilc0re@gmail.com</a>
+                <a href="mailto:d3vilc0re@gmail.com" class="sub-list__item sub-list__item--mail" data-src="contacts__item">d3vilc0re@gmail.com</a>
               </li>
             </ul>
           </li>
@@ -112,22 +113,94 @@
           </div>
         </div>
         <div class="description__content">
-          <div class="description__content-prefix">
-            <div>
-              <p class="description__numbers">111</p>
-              <p class="description__stars">/**</p>
+          <div class="description__item description__item--active" data-src="bio">
+            <div class="description__content-prefix">
             </div>
+            <p class="description__text-wrapper"><br>Здесь какое то краткое описание обо мне. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Quibusdam a
+              veritatis commodi sint repellat iure voluptates, obcaecati illum, id asperiores esse reiciendis deserunt
+              eveniet modi in. Provident temporibus eos ullam. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Minima delectus facere minus voluptatibus laboriosam dolore accusantium! Amet velit facere veritatis autem
+              voluptatibus labore maxime et, officiis odio? Officia, obcaecati omnis.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore iure quae illum. Et minus id, blanditiis
+              consequatur ex laudantium omnis libero assumenda molestias ipsam beatae quis quasi nam excepturi?
+              Quibusdam!
+            </p>
           </div>
-          <p class="description__text-wrapper"><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam a veritatis commodi sint repellat iure voluptates, obcaecati illum, id asperiores esse reiciendis deserunt eveniet modi in. Provident temporibus eos ullam. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima delectus facere minus voluptatibus laboriosam dolore accusantium! Amet velit facere veritatis autem voluptatibus labore maxime et, officiis odio? Officia, obcaecati omnis.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore iure quae illum. Et minus id, blanditiis consequatur ex laudantium omnis libero assumenda molestias ipsam beatae quis quasi nam excepturi? Quibusdam!</p>
+          <div class="description__item" data-src="education">
+            <div class="description__content-prefix">
+            </div>
+            <p class="description__text-wrapper"><br>Здесь какое то описание моего обучения. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Quibusdam a
+              veritatis commodi sint repellat iure voluptates, obcaecati illum, id asperiores esse reiciendis deserunt
+              eveniet modi in. Provident temporibus eos ullam. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Minima delectus facere minus voluptatibus laboriosam dolore accusantium! Amet velit facere veritatis autem
+              voluptatibus labore maxime et, officiis odio? Officia, obcaecati omnis.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore iure quae illum. Et minus id, blanditiis
+              consequatur ex laudantium omnis libero assumenda molestias ipsam beatae quis quasi nam excepturi?
+              Quibusdam!
+            </p>
+          </div>
+          <div class="description__item" data-src="professional-info">
+            <div class="description__content-prefix">
+            </div>
+            <p class="description__text-wrapper"><br>А здесь какое то описание моих проф навыков. Lorem ipsum dolor sit
+              amet consectetur adipisicing elit. Quibusdam a
+              veritatis commodi sint repellat iure voluptates, obcaecati illum, id asperiores esse reiciendis deserunt
+              eveniet modi in. Provident temporibus eos ullam. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Minima delectus facere minus voluptatibus laboriosam dolore accusantium! Amet velit facere veritatis autem
+              voluptatibus labore maxime et, officiis odio? Officia, obcaecati omnis.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore iure quae illum. Et minus id, blanditiis
+              consequatur ex laudantium omnis libero assumenda molestias ipsam beatae quis quasi nam excepturi?
+              Quibusdam!
+            </p>
+          </div>
+          <div class="description__item" data-src="hobbies">
+            <div class="description__content-prefix">
+            </div>
+            <p class="description__text-wrapper"><br>Здесь находится развлекательный контент собранный по моим предпочтениям.
+            </p>
+          </div>
+          <div class="description__item" data-src="interests">
+            <div class="description__content-prefix">
+            </div>
+            <p class="description__text-wrapper"><br>Ну а здесь просто описанны мои увлечения
+            </p>
+          </div>
+          <div class="description__item" data-src="contacts">
+            <div class="description__content-prefix">
+            </div>
+            <p class="description__text-wrapper"><br>Этот блок пока что не несет никакой смысловой нагрузки, но вы можете связаться со мной способами указанными в открывшемся меню слева.
+            </p>
+          </div>
         </div>
       </div>
       <div class="about__content content">
         <div class="content__header"></div>
-        <h4 class="content__title">// additional content</h4>
         <div class="content__container">
-          <h3 class="content__subtitle">@это я</h3>
-          <img class="content__img" src="./img/my-photo.jpg" alt="Моя фотография">
+          <div class="content__wrapper">
+            <h4 class="content__title">// additional content</h4>
+            <div class="content__item content__item--active" data-src="bio">
+              <h3 class="content__subtitle">@это я</h3>
+              <img class="content__img" src="./img/my-photo.jpg" alt="Моя фотография">
+            </div>
+            <div class="content__item" data-src="education">
+              <h3 class="content__subtitle">@это мой сертификат</h3>
+              <a href="https://assets.htmlacademy.ru/certificates/intensive/221/2141243.pdf?1661487123&_ga=2.76509013.1382582731.1674626280-1478447532.1655959860" class="content__link" target="_blank">посмотреть оригинал</a>
+              <img class="content__img" src="./img/cert.jpg" alt="Мой сертификат">
+            </div>
+            <div class="content__item" data-src="professional-info">
+              <h3 class="content__subtitle">@это мой рейтинг на codewars</h3>
+              <a href="https://www.codewars.com/users/b3rzxd3v/" class="content__link" target="_blank">перейти в профиль</a>
+              <img class="content__img" src="https://www.codewars.com/users/b3rzxd3v/badges/large" alt="Мой сертификат">
+            </div>
+            <div class="content__item" data-src="hobbies">
+              <p class="content__warning">пожалуйста перейдите в один из подпунктов меню</p>
+            </div>
+            <div class="content__item" data-src="contacts">
+              <p class="content__warning">все доступные на данный момент способы связи со мной указанны в открывшемся <span class="content__warning--left">меню в левой части сайта<br><br> &lt; =</span><span class="content__warning--up">меню в верхней части сайта<br><br> ^<br>||</span></p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

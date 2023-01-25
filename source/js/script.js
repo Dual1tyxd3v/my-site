@@ -3,9 +3,12 @@ const navigation = document.querySelector('.header');
 const container = document.querySelector('.container');
 const subListBtns = document.querySelectorAll('.sub-list__button');
 const textWrapper = document.querySelector('.description__text-wrapper');
-const prefixContainer = document.querySelector('.description__content-prefix');
-const LINE_HEIGHT = 18;
-const LETTER_WIDTH = 11;
+const menuBtns = document.querySelectorAll('.sub-list__button,.sub-list__item');
+const descriptionTitle = document.querySelector('.description__title');
+
+const LETTER_WIDTH = 10.79;
+const PADDING = 54;
+const PREFIX_WIDTH = 129;
 
 // Кнопка бургера
 menuBtn.addEventListener('click', () => {
@@ -29,28 +32,53 @@ subListBtns.forEach((btn) => {
   });
 });
 //
+// форматирование текста с описанием
 textWrapper.addEventListener('resize', formatText);
 
 formatText();
 function formatText() {
-  const text = textWrapper.textContent.replace(/[ ]+/g,' ').split(' ');
-  const containerWidth = textWrapper.clientWidth - 53;
-  let stroke = 3;
-  let temp = '';
+  const activeContent = document.querySelector('.description__item--active').querySelector('.description__text-wrapper');
+  const prefixContainer = document.querySelector('.description__item--active').querySelector('.description__content-prefix');
+  const text = activeContent.textContent.replace(/[ ]+/g, ' ').replace(/\n/g, '').split(' ');
+  const containerWidth = document.querySelector('.description__item--active').clientWidth - PREFIX_WIDTH - PADDING;
+
+  let rows = 3;
+  let tempString = '';
   for (let i = 0; i < text.length; i++) {
-    if ((temp + text[i]).length * 10.79 > containerWidth) {
-      stroke++;
-      temp = text[i] + ' ';
+    if ((tempString  + text[i]).length * LETTER_WIDTH > containerWidth) {
+      rows++;
+      tempString = text[i] + ' ';
       continue;
     }
-    temp += text[i] + ' ';
+    tempString += text[i] + ' ';
   }
 
-  prefixContainer.innerHTML = "";
-  for (let i = 0; i < stroke; i++) {
+  prefixContainer.innerHTML = '';
+  for (let i = 0; i < rows; i++) {
     let star = ' * ';
-    if (i === 0 ) star = '/**';
-    if (i === stroke - 1) star = ' */';
+    if (i === 0) star = '/**';
+    if (i === rows - 1) star = ' */';
     prefixContainer.innerHTML += `<div><div class="description__numbers">${i + 1}</div><div class="description__stars">${star}</div></div>`;
   }
 }
+//
+// смена контента на странице about
+menuBtns.forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    if (e.target.dataset.src === 'contacts__item') return;
+    e.preventDefault();
+    changeContent(e.target);
+  });
+});
+
+function changeContent(target) {
+  const data = target.dataset.src;
+  descriptionTitle.textContent = data;
+  document.querySelector('.description__item--active').classList.remove('description__item--active');
+  document.querySelector(`.description__item[data-src="${data}"`).classList.add('description__item--active');
+  formatText();
+
+  document.querySelector('.content__item--active') && document.querySelector('.content__item--active').classList.remove('content__item--active');
+  document.querySelector(`.content__item[data-src="${data}"]`) && document.querySelector(`.content__item[data-src="${data}"]`).classList.add('content__item--active');
+}
+//
