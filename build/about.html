@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>My Site</title>
+</head>
+
+<body>
+  <div class="container" style="background-image: none;">
+    <header class="header">
+      <a href="/" class="header__logo">dual1tyXd3v</a>
+      <nav class="header__navigation navigation">
+        <button class="navigation__button" type="button">
+          Кнопка меню
+          <span></span>
+        </button>
+        <ul class="navigation__menu">
+          <li>
+            <a href="/" class="navigation__item">_main</a>
+          </li>
+          <li>
+            <a href="about.html" class="navigation__item navigation__item--active">_about-me</a>
+          </li>
+          <li>
+            <a href="#" class="navigation__item">_projects</a>
+          </li>
+          <li>
+            <a href="#" class="navigation__item">_contact-me</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <p class="page-title">_about-me</p>
+
+    <section class="about">
+      <div class="about__menu">
+        <ul class="about__list">
+          <li class="about__item">
+            <button class="sub-list__button sub-list__button--active" type="button" data-src="bio">
+              <svg class="sub-list__icon" width="14.44" height="13" viewBox="0 0 16 13" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path class="sub-list__icon--bio"
+                  d="M15.0802 3.61111V12.2778C15.0802 12.4693 15.0041 12.653 14.8687 12.7885C14.7332 12.9239 14.5495 13 14.358 13H1.35796C1.16642 13 0.982719 12.9239 0.847276 12.7885C0.711833 12.653 0.635742 12.4693 0.635742 12.2778V2.88889H14.358C14.5495 2.88889 14.7332 2.96498 14.8687 3.10042C15.0041 3.23587 15.0802 3.41957 15.0802 3.61111ZM8.15696 1.44444H0.635742V0.722222C0.635742 0.530677 0.711833 0.346977 0.847276 0.211534C0.982719 0.076091 1.16642 0 1.35796 0H6.71252L8.15696 1.44444Z"
+                  fill="#E99287" />
+              </svg>
+              bio
+            </button>
+            <ul class="about__sub-list sub-list sub-list--opened">
+              <li>
+                <a href="education" class="sub-list__item sub-list__item--education" data-src="education">education</a>
+              </li>
+              <li>
+                <a href="professionals" class="sub-list__item sub-list__item--professionals"
+                  data-src="professional-info">professional-info</a>
+              </li>
+              <li>
+                <a href="interests" class="sub-list__item sub-list__item--interests" data-src="interests">interests</a>
+              </li>
+            </ul>
+          </li>
+          <li class="about__item">
+            <button class="sub-list__button" type="button" data-src="hobbies">
+              <svg class="sub-list__icon" width="14.44" height="13" viewBox="0 0 16 13" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path class="sub-list__icon--hobbies"
+                  d="M15.0802 3.61111V12.2778C15.0802 12.4693 15.0041 12.653 14.8687 12.7885C14.7332 12.9239 14.5495 13 14.358 13H1.35796C1.16642 13 0.982719 12.9239 0.847276 12.7885C0.711833 12.653 0.635742 12.4693 0.635742 12.2778V2.88889H14.358C14.5495 2.88889 14.7332 2.96498 14.8687 3.10042C15.0041 3.23587 15.0802 3.41957 15.0802 3.61111ZM8.15696 1.44444H0.635742V0.722222C0.635742 0.530677 0.711833 0.346977 0.847276 0.211534C0.982719 0.076091 1.16642 0 1.35796 0H6.71252L8.15696 1.44444Z"
+                  fill="#E99287" />
+              </svg>
+              hobbies
+            </button>
+            <ul class="about__sub-list sub-list sub-list--hobbies">
+              <li>
+                <a href="music" class="sub-list__item sub-list__item--music" data-src="music">music</a>
+              </li>
+              <li>
+                <a href="films" class="sub-list__item sub-list__item--films">films</a>
+              </li>
+              <li>
+                <a href="games" class="sub-list__item sub-list__item--games">games</a>
+              </li>
+            </ul>
+          </li>
+          <li class="about__item">
+            <button class="sub-list__button" type="button" data-src="contacts">
+              <svg class="sub-list__icon" width="14.44" height="13" viewBox="0 0 16 13" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path class="sub-list__icon--contacts"
+                  d="M15.0802 3.61111V12.2778C15.0802 12.4693 15.0041 12.653 14.8687 12.7885C14.7332 12.9239 14.5495 13 14.358 13H1.35796C1.16642 13 0.982719 12.9239 0.847276 12.7885C0.711833 12.653 0.635742 12.4693 0.635742 12.2778V2.88889H14.358C14.5495 2.88889 14.7332 2.96498 14.8687 3.10042C15.0041 3.23587 15.0802 3.41957 15.0802 3.61111ZM8.15696 1.44444H0.635742V0.722222C0.635742 0.530677 0.711833 0.346977 0.847276 0.211534C0.982719 0.076091 1.16642 0 1.35796 0H6.71252L8.15696 1.44444Z"
+                  fill="#E99287" />
+              </svg>
+              contacts
+            </button>
+            <ul class="about__sub-list sub-list sub-list--contacts">
+              <li>
+                <a href="mailto:d3vilc0re@gmail.com" class="sub-list__item sub-list__item--mail" data-src="contacts__item">d3vilc0re@gmail.com</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="about__description description">
+        <div class="description__header">
+          <div class="description__wrapper">
+            <span class="description__prefix">// </span>
+            <h4 class="description__title">bio</h4>
+            <span class="description__prefix description--grey"> / </span>
+            <span class="description__subtitle description--grey"></span>
+          </div>
+        </div>
+        <div class="description__content">
+          <div class="description__item description__item--active" data-src="bio">
+            <div class="description__content-prefix">
+            </div>
+            <p class="description__text-wrapper"><br>Здесь какое то краткое описание обо мне. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Quibusdam a
+              veritatis commodi sint repellat iure voluptates, obcaecati illum, id asperiores esse reiciendis deserunt
+              eveniet modi in. Provident temporibus eos ullam. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Minima delectus facere minus voluptatibus laboriosam dolore accusantium! Amet velit facere veritatis autem
+              voluptatibus labore maxime et, officiis odio? Officia, obcaecati omnis.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore iure quae illum. Et minus id, blanditiis
+              consequatur ex laudantium omnis libero assumenda molestias ipsam beatae quis quasi nam excepturi?
+              Quibusdam!
+            </p>
+          </div>
+          <div class="description__item" data-src="education">
+            <div class="description__content-prefix">
+            </div>
+            <p class="description__text-wrapper"><br>Здесь какое то описание моего обучения. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Quibusdam a
+              veritatis commodi sint repellat iure voluptates, obcaecati illum, id asperiores esse reiciendis deserunt
+              eveniet modi in. Provident temporibus eos ullam. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Minima delectus facere minus voluptatibus laboriosam dolore accusantium! Amet velit facere veritatis autem
+              voluptatibus labore maxime et, officiis odio? Officia, obcaecati omnis.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore iure quae illum. Et minus id, blanditiis
+              consequatur ex laudantium omnis libero assumenda molestias ipsam beatae quis quasi nam excepturi?
+              Quibusdam!
+            </p>
+          </div>
+          <div class="description__item" data-src="professional-info">
+            <div class="description__content-prefix">
+            </div>
+            <p class="description__text-wrapper"><br>А здесь какое то описание моих проф навыков. Lorem ipsum dolor sit
+              amet consectetur adipisicing elit. Quibusdam a
+              veritatis commodi sint repellat iure voluptates, obcaecati illum, id asperiores esse reiciendis deserunt
+              eveniet modi in. Provident temporibus eos ullam. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Minima delectus facere minus voluptatibus laboriosam dolore accusantium! Amet velit facere veritatis autem
+              voluptatibus labore maxime et, officiis odio? Officia, obcaecati omnis.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore iure quae illum. Et minus id, blanditiis
+              consequatur ex laudantium omnis libero assumenda molestias ipsam beatae quis quasi nam excepturi?
+              Quibusdam!
+            </p>
+          </div>
+          <div class="description__item" data-src="hobbies">
+            <div class="description__content-prefix">
+            </div>
+            <p class="description__text-wrapper"><br>Здесь находится развлекательный контент собранный по моим предпочтениям.
+            </p>
+          </div>
+          <div class="description__item" data-src="interests">
+            <div class="description__content-prefix">
+            </div>
+            <p class="description__text-wrapper"><br>Ну а здесь просто описанны мои увлечения
+            </p>
+          </div>
+          <div class="description__item" data-src="contacts">
+            <div class="description__content-prefix">
+            </div>
+            <p class="description__text-wrapper"><br>Этот блок пока что не несет никакой смысловой нагрузки, но вы можете связаться со мной способами указанными в открывшемся меню слева.
+            </p>
+          </div>
+          <div class="description__item" data-src="music">
+            <p class="description__text-wrapper"><br>
+              <a href="#" class="content__link" data-src="music--daily">плейлист дня =&gt;</a>
+              <br>
+              <a href="#" class="content__link" data-src="music--my">мой плейлист =&gt;</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="about__content content">
+        <div class="content__header"></div>
+        <div class="content__container">
+          <div class="content__wrapper">
+            <h4 class="content__title">// additional content</h4>
+            <div class="content__item content__item--active" data-src="bio">
+              <h3 class="content__subtitle">@это я</h3>
+              <img class="content__img" src="./img/my-photo.jpg" alt="Моя фотография">
+            </div>
+            <div class="content__item" data-src="education">
+              <h3 class="content__subtitle">@это мой сертификат</h3>
+              <a href="https://assets.htmlacademy.ru/certificates/intensive/221/2141243.pdf?1661487123&_ga=2.76509013.1382582731.1674626280-1478447532.1655959860" class="content__link" target="_blank">посмотреть оригинал</a>
+              <img class="content__img" src="./img/cert.jpg" alt="Мой сертификат">
+            </div>
+            <div class="content__item" data-src="professional-info">
+              <h3 class="content__subtitle">@это мой рейтинг на codewars</h3>
+              <a href="https://www.codewars.com/users/b3rzxd3v/" class="content__link" target="_blank">перейти в профиль</a>
+              <img class="content__img" src="https://www.codewars.com/users/b3rzxd3v/badges/large" alt="Мой сертификат">
+            </div>
+            <div class="content__item" data-src="hobbies">
+              <p class="content__warning">пожалуйста перейдите в один из подпунктов меню</p>
+            </div>
+            <div class="content__item" data-src="contacts">
+              <p class="content__warning">все доступные на данный момент способы связи со мной указанны в открывшемся <span class="content__warning--left">меню в левой части сайта<br><br> &lt; =</span><span class="content__warning--up">меню в верхней части сайта<br><br> ^<br>||</span></p>
+            </div>
+            <div class="content__item" data-src="music--daily">
+              <iframe frameborder="0" style="border:none;width:100%;height:550px;" width="100%" height="550" src="https://music.yandex.ru/iframe/#playlist/yamusic-daily/77863501">Слушайте <a href='https://music.yandex.ru/users/yamusic-daily/playlists/77863501'>Плейлист дня</a> — <a href='https://music.yandex.ru/users/yamusic-daily'>yamusic-daily</a> на Яндекс Музыке</iframe>
+            </div>
+            <div class="content__item" data-src="music--my">
+              <iframe frameborder="0" style="border:none;width:100%;height:550px;" width="100%" height="550" src="https://music.yandex.ru/iframe/#playlist/d3vc0re/3">Слушайте <a href='https://music.yandex.ru/users/d3vc0re/playlists/3'>Мне нравится</a> — <a href='https://music.yandex.ru/users/d3vc0re'>d3vc0re</a> на Яндекс Музыке</iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p class="footer__text">я в соц сетях:</p>
+      <ul class="footer__list">
+        <li>
+          <a href="https://vk.com" class="footer__item footer__item--vk"></a>
+        </li>
+        <li>
+          <a href="https://github.com/Dual1tyxd3v" class="footer__item footer__item--github">@Dual1tyxd3v</a>
+        </li>
+      </ul>
+    </footer>
+  </div>
+
+  <script src="./js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+.content {
+  &__title {
+    text-transform: capitalize;
+    font-weight: 450;
+    font-size: 16px;
+    line-height: 140%;
+    color: #fff;
+    margin-bottom: 29px;
+  }
+  &__subtitle {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: #5565E8;
+    margin-bottom: 14px;
+  }
+  &__img {
+    max-width: 500px;
+  }
+  &__item {
+    display: none;
+    max-width: 500px;
+    margin: 0 auto;
+    &--active {
+      display: block;
+    }
+  }
+  &__link {
+    display: inline-block;
+    padding: 10px 14px;
+    background: #1C2B3A;
+    border-radius: 8px;
+    font-weight: 450;
+    font-size: 14px;
+    line-height: 18px;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+  &__warning {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    color: $green;
+    margin-bottom: 30px;
+    &--left {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .content {
+    &__header {
+      height: 50px;
+      border-bottom: 1px solid $border-color;
+    }
+    &__title {
+      display: inline-block;
+      font-size: 18px;
+      line-height: 24px;
+      color: $grey;
+      margin-bottom: 30px;
+      padding-top: 18px;
+      padding-left: 20px;
+    }
+    &__wrapper {
+      border-right: 1px solid $border-color;
+      height: 100%;
+    }
+    &__container {
+      overflow-y: scroll;
+      height: 780px;
+      padding-right: 2px;
+      &::-webkit-scrollbar {
+        width: 26px;
+        background-color: #011627;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: $grey; /*Цвет ползунка*/
+        width: 24px;
+      }
+    }
+    &__subtitle {
+      margin-bottom: 14px;
+    }
+    &__item {
+      padding: 0 20px;
+      &[data-src='music--daily'],
+      &[data-src='music--my'] {
+        max-width: 600px;
+      }
+    }
+    &__warning--up {
+      display: none;
+    }
+    &__warning--left {
+      display: inline;
+    }
+  }
+}
