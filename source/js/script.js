@@ -14,7 +14,7 @@ const filmsBlock = document.querySelector('.content__item[data-src="films"]');
 const LETTER_WIDTH = 10.79;
 const PADDING = 54;
 const PREFIX_WIDTH = 129;
-const ZAGONKA__URL = 'http://zagonka.zagonkov.gb.net';
+const ZAGONKA__URL = 'https://zagonka.zagonkov.gb.net';
 
 // Кнопка бургера
 menuBtn.addEventListener('click', () => {
