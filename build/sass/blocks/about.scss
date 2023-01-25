@@ -1,0 +1,49 @@
+.about {
+  flex-grow: 1;
+  &__menu,
+  &__description {
+    margin-bottom: 38px;
+  }
+  &__item {
+    margin-bottom: 3px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__content {
+    padding: 0 27px;
+  }
+}
+.header--opened ~ .about {
+  display: none;
+}
+
+@media (min-width: $desktop-width) {
+  .about {
+    display: flex;
+    max-height: 830px;
+    &__menu {
+      margin-bottom: 0;
+      max-width: 311px;
+      width: 17.45%;
+      min-width: 244px;
+      border-right: 1px solid $border-color;
+    }
+    &__description {
+      width: 43.25%;
+      max-width: 771px;
+    }
+    &__content {
+      width: 39.3%;
+      max-width: 700px;
+      padding: 0;
+    }
+    &__item {
+      border-bottom: 1px solid $border-color;
+      margin-bottom: 0;
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+}
