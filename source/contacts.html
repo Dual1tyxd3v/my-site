@@ -90,18 +90,23 @@
             <form action="form.php" method="POST" class="description__form form">
               <div class="form__field">
                 <label class="form__label" for="name">_name:</label>
-                <input class="form__input" type="text" id="name" data-src="js-name">
+                <input class="form__input" name="name" type="text" id="name" data-src="js-name">
               </div>
               <div class="form__field">
                 <label class="form__label" for="email">_email:</label>
-                <input class="form__input" type="text" id="email" data-src="js-email">
+                <input class="form__input" name="email" type="text" id="email" data-src="js-email">
               </div>
               <div class="form__field">
                 <label class="form__label" for="message">_message:</label>
-                <textarea class="form__input form__input--textarea" id="message" data-src="js-message"></textarea>
+                <textarea class="form__input form__input--textarea" name="message" id="message" data-src="js-message"></textarea>
               </div>
               <button class="content__link" type="submit">submit-message</button>
             </form>
+          </div>
+          <div class="description__item thanks" data-src="thanks">
+            <h3 class="thanks__title">Thank you! 🤘</h3>
+            <p class="thanks__text">Your message has been accepted. You will recieve answer really soon!</p>
+            <a href="contacts.html" class="content__link" data-src="contacts">send-new-message</a>
           </div>
         </div>
       </div>

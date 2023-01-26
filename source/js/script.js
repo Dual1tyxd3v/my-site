@@ -19,6 +19,7 @@ const PREFIX_WIDTH = 129;
 const ZAGONKA__URL = 'http://zagonka.zagonkov.gb.net';
 const NOOB_CLUB_URL = 'https://www.noob-club.ru';
 const SPINNER = '<img width="128" src="./img/spinner.svg" style="width: 200px; display: block; margin: 0 auto">';
+const form = document.querySelector('.form');
 
 // Кнопка бургера
 menuBtn.addEventListener('click', () => {
@@ -50,7 +51,7 @@ function formatText() {
   const prefixContainer = document.querySelector('.description__item--active').querySelector('.description__content-prefix');
 
   if (!prefixContainer) return;
-  
+
   const text = activeContent.textContent.replace(/[ ]+/g, ' ').replace(/\n/g, '').split(' ');
   const containerWidth = document.querySelector('.description__item--active').clientWidth - PREFIX_WIDTH - PADDING;
 
@@ -241,3 +242,23 @@ function formatCodeText() {
   }
 }
 //
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  sendMessage();
+});
+async function sendMessage() {
+  const data = new FormData(form);
+
+  const answer = await fetch('form.php', {method: 'POST', body: data})
+    .then(res => res.text())
+    .then(res => res)
+    .catch(e => alert(e.message));
+  if (answer === "1") {
+    showThanks();
+    form.reset();
+  }
+}
+function showThanks() {
+  document.querySelector('.description__item--active').classList.remove('description__item--active');
+  document.querySelector('.thanks').classList.add('description__item--active');
+}
