@@ -29,12 +29,14 @@
     display: inline-block;
     padding: 10px 14px;
     background: #1C2B3A;
+    border: none;
     border-radius: 8px;
     font-weight: 450;
     font-size: 14px;
     line-height: 18px;
     color: #fff;
     margin-bottom: 14px;
+    cursor: pointer;
   }
   &__warning {
     font-weight: 700;
@@ -93,6 +95,10 @@
       &[data-src='music--daily'],
       &[data-src='music--my'] {
         max-width: 600px;
+      }
+      &[data-src='contacts'] {
+        padding: 115px 0;
+        max-width: none;
       }
     }
     &__warning--up {

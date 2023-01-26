@@ -73,6 +73,11 @@
         background-image: url("../img/icon-mail.svg");
       }
     }
+    &--find {
+      &::before {
+        background-image: url("../img/icon-find-me.svg");
+      }
+    }
     &--games {
       &::before {
         background-image: url("../img/icon-games.svg");
@@ -96,6 +101,9 @@
     }
     &--contacts {
       fill: #3A49A4;
+    }
+    &--find {
+      fill: #FEA55F;
     }
   }
 }

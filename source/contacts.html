@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>My Site</title>
+</head>
+
+<body>
+  <div class="container" style="background-image: none;">
+    <header class="header">
+      <a href="index.html" class="header__logo">dual1tyXd3v</a>
+      <nav class="header__navigation navigation">
+        <button class="navigation__button" type="button">
+          Кнопка меню
+          <span></span>
+        </button>
+        <ul class="navigation__menu">
+          <li>
+            <a href="index.html" class="navigation__item">_main</a>
+          </li>
+          <li>
+            <a href="about.html" class="navigation__item">_about-me</a>
+          </li>
+          <li>
+            <a href="#" class="navigation__item">_projects</a>
+          </li>
+          <li>
+            <a href="contacts" class="navigation__item navigation__item--active">_contact-me</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <p class="page-title">_contacts</p>
+
+    <main class="main main-contacts">
+      <div class="main__menu">
+        <ul class="main__list">
+          <li class="main__item">
+            <button class="sub-list__button sub-list__button--active" type="button" data-src="contacts">
+              <svg class="sub-list__icon" width="14.44" height="13" viewBox="0 0 16 13" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path class="sub-list__icon--contacts"
+                  d="M15.0802 3.61111V12.2778C15.0802 12.4693 15.0041 12.653 14.8687 12.7885C14.7332 12.9239 14.5495 13 14.358 13H1.35796C1.16642 13 0.982719 12.9239 0.847276 12.7885C0.711833 12.653 0.635742 12.4693 0.635742 12.2778V2.88889H14.358C14.5495 2.88889 14.7332 2.96498 14.8687 3.10042C15.0041 3.23587 15.0802 3.41957 15.0802 3.61111ZM8.15696 1.44444H0.635742V0.722222C0.635742 0.530677 0.711833 0.346977 0.847276 0.211534C0.982719 0.076091 1.16642 0 1.35796 0H6.71252L8.15696 1.44444Z"
+                  fill="#E99287" />
+              </svg>
+              contacts
+            </button>
+            <ul class="main__sub-list sub-list sub-list--opened sub-list--contacts">
+              <li>
+                <a href="mailto:d3vilc0re@gmail.com" class="sub-list__item sub-list__item--mail"
+                  data-src="contacts__item">d3vilc0re@gmail.com</a>
+              </li>
+            </ul>
+          </li>
+          <li class="main__item">
+            <button class="sub-list__button sub-list__button--active" type="button" data-src="contacts">
+              <svg class="sub-list__icon" width="14.44" height="13" viewBox="0 0 16 13" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path class="sub-list__icon--find"
+                  d="M15.0802 3.61111V12.2778C15.0802 12.4693 15.0041 12.653 14.8687 12.7885C14.7332 12.9239 14.5495 13 14.358 13H1.35796C1.16642 13 0.982719 12.9239 0.847276 12.7885C0.711833 12.653 0.635742 12.4693 0.635742 12.2778V2.88889H14.358C14.5495 2.88889 14.7332 2.96498 14.8687 3.10042C15.0041 3.23587 15.0802 3.41957 15.0802 3.61111ZM8.15696 1.44444H0.635742V0.722222C0.635742 0.530677 0.711833 0.346977 0.847276 0.211534C0.982719 0.076091 1.16642 0 1.35796 0H6.71252L8.15696 1.44444Z"
+                  fill="#E99287" />
+              </svg>
+              find-me-also-in
+            </button>
+            <ul class="main__sub-list sub-list sub-list--opened sub-list--contacts">
+              <li>
+                <a href="https://www.codewars.com/users/b3rzxd3v/" class="sub-list__item sub-list__item--find"
+                  target="_blank" data-src="contacts__item">Codewars profile</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="main__description description">
+        <div class="description__header">
+          <div class="description__wrapper">
+            <span class="description__prefix">// </span>
+            <h4 class="description__title">contacts</h4>
+            <span class="description__prefix description--grey"> / </span>
+            <span class="description__subtitle description--grey"></span>
+          </div>
+        </div>
+        <div class="description__content">
+          <div class="description__item description__item--active" data-src="contacts">
+            <form action="form.php" method="POST" class="description__form form">
+              <div class="form__field">
+                <label class="form__label" for="name">_name:</label>
+                <input class="form__input" type="text" id="name" data-src="js-name">
+              </div>
+              <div class="form__field">
+                <label class="form__label" for="email">_email:</label>
+                <input class="form__input" type="text" id="email" data-src="js-email">
+              </div>
+              <div class="form__field">
+                <label class="form__label" for="message">_message:</label>
+                <textarea class="form__input form__input--textarea" id="message" data-src="js-message"></textarea>
+              </div>
+              <button class="content__link" type="submit">submit-message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="main__content content">
+        <div class="content__header"></div>
+        <div class="content__container">
+          <div class="content__wrapper">
+            <h4 class="content__title">// additional content</h4>
+            <div class="content__item content__item--active" data-src="contacts">
+              <div class="content__contacts contacts">
+                <div class="contacts__prefix"></div>
+                <div class="contacts__code">
+                  <code>
+                    <span class="contacts__code contacts__code--pink">const</span> button <span class="contacts__code contacts__code--pink">=</span> document<span class="contacts__code contacts__code--grey">.</span>querySelector<span class="contacts__code contacts__code--grey">(<span class="contacts__code contacts__code--orange">'.form__button'</span>);<br></span>
+                    <span class="contacts__code contacts__code--pink">const</span> form <span class="contacts__code contacts__code--pink">=</span> document<span class="contacts__code contacts__code--grey">.</span>querySelector<span class="contacts__code contacts__code--grey">(<span class="contacts__code contacts__code--orange">'.form'</span>);</span><br><br>
+                    <span class="contacts__code contacts__code--pink">const</span> message <span class="contacts__code contacts__code--pink">=</span> <span class="contacts__code contacts__code--grey">{<br>
+                    <span class="contacts__code">&nbsp;&nbsp;name</span>: <span class="contacts__code contacts__code--orange js-name">''</span>,<br>
+                    <span class="contacts__code">&nbsp;&nbsp;email</span>: <span class="contacts__code contacts__code--orange js-email">''</span>,<br>
+                    <span class="contacts__code">&nbsp;&nbsp;message</span>: <span class="contacts__code contacts__code--orange js-message">''</span><br>};</span><br><br>
+                    button<span class="contacts__code contacts__code--grey">.</span>addEventListener<span class="contacts__code contacts__code--grey">(<span class="contacts__code contacts__code--orange">'click'</span>, () <span class="contacts__code contacts__code--pink">=></span> {</span><br>
+                      &nbsp;&nbsp;form<span class="contacts__code contacts__code--grey">.</span>send<span class="contacts__code contacts__code--grey">(<span class="contacts__code">message</span>);<br>
+                    });</span></code>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__text">я в соц сетях:</p>
+      <ul class="footer__list">
+        <li>
+          <a href="https://vk.com" class="footer__item footer__item--vk"></a>
+        </li>
+        <li>
+          <a href="https://github.com/Dual1tyxd3v" class="footer__item footer__item--github">@Dual1tyxd3v</a>
+        </li>
+      </ul>
+    </footer>
+  </div>
+
+  <script src="./js/script.js"></script>
+</body>
+
+</html>

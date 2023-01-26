@@ -8,9 +8,10 @@ const descriptionTitle = document.querySelector('.description__title');
 const dailyPlaylist = document.querySelector('.daily-playlist');
 const description = document.querySelector('.description');
 const content = document.querySelector('.content');
-const aboutMenu = document.querySelector('.about__menu');
+const mainMenu = document.querySelector('.main__menu');
 const filmsBlock = document.querySelector('.content__item[data-src="films"]');
 const gamesBlock = document.querySelector('.content__item[data-src="games"');
+const inputs = document.querySelectorAll('input,textarea');
 
 const LETTER_WIDTH = 10.79;
 const PADDING = 54;
@@ -31,6 +32,7 @@ window.addEventListener('resize', () => {
     navigation.classList.remove('header--opened');
   }
   window.location.pathname === '/about.html' ? formatText() : null;
+  formatCodeText();
 });
 //
 // кнопки меню
@@ -70,7 +72,7 @@ function formatText() {
   }
 }
 //
-// смена контента на странице about
+// смена контента на странице main
 menuBtns.forEach((btn) => {
   btn.addEventListener('click', (e) => {
     if (e.target.dataset.src === 'contacts__item') return;
@@ -82,20 +84,20 @@ menuBtns.forEach((btn) => {
 function changeContent(target) {
   const data = target.dataset.src.split('--')[0];
   descriptionTitle.textContent = data;
-  content.classList.remove('about__content--long');
-  description.classList.remove('about__description--short');
+  content.classList.remove('main__content--long');
+  description.classList.remove('main__description--short');
   description.classList.remove('hide');
   content.classList.remove('full');
-  aboutMenu.classList.remove('about__menu--long');
+  mainMenu.classList.remove('main__menu--long');
 
   if (data === 'music' || data === 'games') {
-    content.classList.add('about__content--long');
-    description.classList.add('about__description--short');
+    content.classList.add('main__content--long');
+    description.classList.add('main__description--short');
   }
   if (data === 'films') {
     description.classList.add('hide');
     content.classList.add('full');
-    aboutMenu.classList.add('about__menu--long');
+    mainMenu.classList.add('main__menu--long');
   }
 
   const postfix = target.dataset.src.split('--')[1] ? '--' + target.dataset.src.split('--')[1] : '';
@@ -115,6 +117,8 @@ function changeContent(target) {
   }
 }
 //
+// загрузка списка новостей
+// -- загрузка с фронта
 async function loadGamesCORS() {
   gamesBlock.innerHTML = SPINNER;
   const html = await fetch(NOOB_CLUB_URL)
@@ -128,7 +132,7 @@ async function loadGamesCORS() {
   gamesBlock.innerHTML = '';
   renderGames(blocks, { blockTitle: 'Noob-Club', url: NOOB_CLUB_URL });
 }
-
+// загрузка с php
 async function loadGames() {
   const data = new FormData();
   data.set('url', NOOB_CLUB_URL);
@@ -190,6 +194,7 @@ function renderFilms({ blocks, titles }) {
   });
 }
 //
+// отрисовка новостей
 function renderGames(blocks, { blockTitle, url }) {
   const div = document.createElement('div');
   div.classList.add('games');
@@ -210,3 +215,27 @@ function renderGames(blocks, { blockTitle, url }) {
     gamesBlock.append(div);
   });
 }
+//
+// перерисовка блока с кодом
+inputs.forEach((input) => {
+  input.addEventListener('input', (e) => {
+    const data = e.target.dataset.src;
+    document.querySelector(`.${data}`).textContent = `'${input.value}'`;
+    formatCodeText();
+  });
+});
+
+formatCodeText();
+function formatCodeText() {
+  const codeWrapper = document.querySelector('.contacts__code');
+  if (!codeWrapper) return;
+
+  const lineHeight = +getComputedStyle(codeWrapper).lineHeight.replace('px', '');
+  const rows = codeWrapper.clientHeight / lineHeight;
+  const prefixContainer = document.querySelector('.contacts__prefix');
+  prefixContainer.innerHTML = '';
+  for (let i = 1; i < rows + 1; i++) {
+    prefixContainer.innerHTML += `<div>${i}</div>`;
+  }
+}
+//

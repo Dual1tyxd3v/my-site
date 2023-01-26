@@ -1,0 +1,33 @@
+.contacts {
+  max-width: 690px;
+  display: flex;
+  align-items: flex-start;
+  padding: 0 15px;
+  margin: 0 auto;
+  &__code {
+    font-weight: 450;
+    font-size: 18px;
+    line-height: 150%;
+    color: $blue;
+    width: 600px;
+    overflow-x: scroll;
+    &--pink {
+      color: #C98BDF;
+    }
+    &--orange {
+      color: #FEA55F;
+    }
+    &--grey {
+      color: $grey;
+    }
+  }
+  &__prefix {
+    margin-right: 40px;
+    min-width: 22px;
+    text-align: right;
+    font-weight: 450;
+    font-size: 18px;
+    line-height: 150%;
+    color: $grey;
+  }
+}

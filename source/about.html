@@ -29,7 +29,7 @@
             <a href="#" class="navigation__item">_projects</a>
           </li>
           <li>
-            <a href="#" class="navigation__item">_contact-me</a>
+            <a href="contacts.html" class="navigation__item">_contact-me</a>
           </li>
         </ul>
       </nav>
@@ -37,10 +37,10 @@
 
     <p class="page-title">_about-me</p>
 
-    <section class="about">
-      <div class="about__menu">
-        <ul class="about__list">
-          <li class="about__item">
+    <section class="main">
+      <div class="main__menu">
+        <ul class="main__list">
+          <li class="main__item">
             <button class="sub-list__button sub-list__button--active" type="button" data-src="bio">
               <svg class="sub-list__icon" width="14.44" height="13" viewBox="0 0 16 13" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
@@ -50,7 +50,7 @@
               </svg>
               bio
             </button>
-            <ul class="about__sub-list sub-list sub-list--opened">
+            <ul class="main__sub-list sub-list sub-list--opened">
               <li>
                 <a href="education" class="sub-list__item sub-list__item--education" data-src="education">education</a>
               </li>
@@ -63,7 +63,7 @@
               </li>
             </ul>
           </li>
-          <li class="about__item">
+          <li class="main__item">
             <button class="sub-list__button" type="button" data-src="hobbies">
               <svg class="sub-list__icon" width="14.44" height="13" viewBox="0 0 16 13" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
@@ -73,7 +73,7 @@
               </svg>
               hobbies
             </button>
-            <ul class="about__sub-list sub-list sub-list--hobbies">
+            <ul class="main__sub-list sub-list sub-list--hobbies">
               <li>
                 <a href="music" class="sub-list__item sub-list__item--music" data-src="music">music</a>
               </li>
@@ -85,8 +85,8 @@
               </li>
             </ul>
           </li>
-          <li class="about__item">
-            <button class="sub-list__button" type="button" data-src="contacts">
+          <li class="main__item">
+            <button class="sub-list__button" type="button" data-src="contacts__item">
               <svg class="sub-list__icon" width="14.44" height="13" viewBox="0 0 16 13" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path class="sub-list__icon--contacts"
@@ -95,7 +95,7 @@
               </svg>
               contacts
             </button>
-            <ul class="about__sub-list sub-list sub-list--contacts">
+            <ul class="main__sub-list sub-list sub-list--contacts">
               <li>
                 <a href="mailto:d3vilc0re@gmail.com" class="sub-list__item sub-list__item--mail" data-src="contacts__item">d3vilc0re@gmail.com</a>
               </li>
@@ -103,7 +103,7 @@
           </li>
         </ul>
       </div>
-      <div class="about__description description">
+      <div class="main__description description">
         <div class="description__header">
           <div class="description__wrapper">
             <span class="description__prefix">// </span>
@@ -167,12 +167,6 @@
             <p class="description__text-wrapper"><br>Ну а здесь просто описанны мои увлечения
             </p>
           </div>
-          <div class="description__item" data-src="contacts">
-            <div class="description__content-prefix">
-            </div>
-            <p class="description__text-wrapper"><br>Этот блок пока что не несет никакой смысловой нагрузки, но вы можете связаться со мной способами указанными в открывшемся меню слева.
-            </p>
-          </div>
           <div class="description__item" data-src="music">
             <p class="description__text-wrapper"><br>
               <a href="#" class="content__link" data-src="music--daily">плейлист дня =&gt;</a>
@@ -187,7 +181,7 @@
           </div>
         </div>
       </div>
-      <div class="about__content content">
+      <div class="main__content content">
         <div class="content__header"></div>
         <div class="content__container">
           <div class="content__wrapper">
@@ -209,14 +203,11 @@
             <div class="content__item" data-src="hobbies">
               <p class="content__warning">пожалуйста перейдите в один из подпунктов меню</p>
             </div>
-            <div class="content__item" data-src="contacts">
-              <p class="content__warning">все доступные на данный момент способы связи со мной указанны в открывшемся <span class="content__warning--left">меню в левой части сайта<br><br> &lt; =</span><span class="content__warning--up">меню в верхней части сайта<br><br> ^<br>||</span></p>
-            </div>
             <div class="content__item" data-src="music--daily">
-              <iframe frameborder="0" style="border:none;width:100%;height:550px;" width="100%" height="550" src="https://music.yandex.ru/iframe/#playlist/yamusic-daily/77863501">Слушайте <a href='https://music.yandex.ru/users/yamusic-daily/playlists/77863501'>Плейлист дня</a> — <a href='https://music.yandex.ru/users/yamusic-daily'>yamusic-daily</a> на Яндекс Музыке</iframe>
+              <iframe frameborder="0" style="border:none;" width="100%" height="700" src="https://music.yandex.ru/iframe/#playlist/yamusic-daily/77863501">Слушайте <a href='https://music.yandex.ru/users/yamusic-daily/playlists/77863501'>Плейлист дня</a> — <a href='https://music.yandex.ru/users/yamusic-daily'>yamusic-daily</a> на Яндекс Музыке</iframe>
             </div>
             <div class="content__item" data-src="music--my">
-              <iframe frameborder="0" style="border:none;width:100%;height:550px;" width="100%" height="550" src="https://music.yandex.ru/iframe/#playlist/d3vc0re/3">Слушайте <a href='https://music.yandex.ru/users/d3vc0re/playlists/3'>Мне нравится</a> — <a href='https://music.yandex.ru/users/d3vc0re'>d3vc0re</a> на Яндекс Музыке</iframe>
+              <iframe frameborder="0" style="border:none;" width="100%" height="700" src="https://music.yandex.ru/iframe/#playlist/d3vc0re/3">Слушайте <a href='https://music.yandex.ru/users/d3vc0re/playlists/3'>Мне нравится</a> — <a href='https://music.yandex.ru/users/d3vc0re'>d3vc0re</a> на Яндекс Музыке</iframe>
             </div>
             <div class="content__item" data-src="films"></div>
             <div class="content__item" data-src="games"></div>
