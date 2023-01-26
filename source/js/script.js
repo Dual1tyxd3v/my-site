@@ -47,8 +47,10 @@ subListBtns.forEach((btn) => {
 window.location.pathname === '/about.html' ? formatText() : null;
 function formatText() {
   const activeContent = document.querySelector('.description__item--active').querySelector('.description__text-wrapper');
-  if (activeContent.parentElement.dataset.src === 'music' || activeContent.parentElement.dataset.src === 'games') return;
   const prefixContainer = document.querySelector('.description__item--active').querySelector('.description__content-prefix');
+
+  if (!prefixContainer) return;
+  
   const text = activeContent.textContent.replace(/[ ]+/g, ' ').replace(/\n/g, '').split(' ');
   const containerWidth = document.querySelector('.description__item--active').clientWidth - PREFIX_WIDTH - PADDING;
 
