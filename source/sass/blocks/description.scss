@@ -53,7 +53,8 @@
         width: 24px;
       }
     }
-    &__item[data-src='music'] .description__text-wrapper{
+    &__item[data-src='music'] .description__text-wrapper,
+    &__item[data-src='games'] .description__text-wrapper{
       text-align: center;
     }
     &__item--active {

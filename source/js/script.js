@@ -10,11 +10,14 @@ const description = document.querySelector('.description');
 const content = document.querySelector('.content');
 const aboutMenu = document.querySelector('.about__menu');
 const filmsBlock = document.querySelector('.content__item[data-src="films"]');
+const gamesBlock = document.querySelector('.content__item[data-src="games"');
 
 const LETTER_WIDTH = 10.79;
 const PADDING = 54;
 const PREFIX_WIDTH = 129;
-const ZAGONKA__URL = 'https://zagonka.zagonkov.gb.net';
+const ZAGONKA__URL = 'http://zagonka.zagonkov.gb.net';
+const NOOB_CLUB_URL = 'https://www.noob-club.ru';
+const SPINNER = '<img width="128" src="./img/spinner.svg" style="width: 200px; display: block; margin: 0 auto">';
 
 // Кнопка бургера
 menuBtn.addEventListener('click', () => {
@@ -42,7 +45,7 @@ subListBtns.forEach((btn) => {
 window.location.pathname === '/about.html' ? formatText() : null;
 function formatText() {
   const activeContent = document.querySelector('.description__item--active').querySelector('.description__text-wrapper');
-  if (activeContent.parentElement.dataset.src === 'music') return;
+  if (activeContent.parentElement.dataset.src === 'music' || activeContent.parentElement.dataset.src === 'games') return;
   const prefixContainer = document.querySelector('.description__item--active').querySelector('.description__content-prefix');
   const text = activeContent.textContent.replace(/[ ]+/g, ' ').replace(/\n/g, '').split(' ');
   const containerWidth = document.querySelector('.description__item--active').clientWidth - PREFIX_WIDTH - PADDING;
@@ -85,7 +88,7 @@ function changeContent(target) {
   content.classList.remove('full');
   aboutMenu.classList.remove('about__menu--long');
 
-  if (data === 'music') {
+  if (data === 'music' || data === 'games') {
     content.classList.add('about__content--long');
     description.classList.add('about__description--short');
   }
@@ -107,12 +110,37 @@ function changeContent(target) {
   if (data === 'films') {
     loadFilmsCORS();
   }
+  if (data === 'games' && target.dataset.catalog) {
+    loadGamesCORS();
+  }
 }
 //
+async function loadGamesCORS() {
+  gamesBlock.innerHTML = SPINNER;
+  const html = await fetch(NOOB_CLUB_URL)
+    .then(res => res.text())
+    .then(res => res)
+    .catch(e => loadGames());
+
+  const div = document.createElement('div');
+  div.innerHTML = html.split('<body')[1];
+  const blocks = div.querySelector('.content').querySelectorAll('.entry');
+  gamesBlock.innerHTML = '';
+  renderGames(blocks, { blockTitle: 'Noob-Club', url: NOOB_CLUB_URL });
+}
+
+async function loadGames() {
+  const data = new FormData();
+  data.set('url', NOOB_CLUB_URL);
+  return await fetch('content.php', { body: data, method: 'POST' })
+    .then(res => res.text())
+    .then(res => res)
+    .catch(e => alert(e));
+}
 // загрузка списка фильмов
 // -- загрузка с фронта
 async function loadFilmsCORS() {
-  filmsBlock.innerHTML = '<img width="128" src="./img/spinner.svg" style="width: 200px; display: block; margin: 0 auto">';
+  filmsBlock.innerHTML = SPINNER;
   const html = await fetch(ZAGONKA__URL)
     .then(res => res.text())
     .then(res => res)
@@ -135,14 +163,14 @@ async function loadFilmsCORS() {
 async function loadFilms() {
   const data = new FormData();
   data.set('url', ZAGONKA__URL);
-  return await fetch('content.php', {body: data, method: 'POST'})
+  return await fetch('content.php', { body: data, method: 'POST' })
     .then(res => res.text())
     .then(res => res)
     .catch(e => alert(e));
 }
 //
 // отрисовка списка фильмов
-function renderFilms({blocks, titles}) {
+function renderFilms({ blocks, titles }) {
   blocks.forEach((block, i) => {
     const div = document.createElement('div');
     div.classList.add('films');
@@ -162,3 +190,23 @@ function renderFilms({blocks, titles}) {
   });
 }
 //
+function renderGames(blocks, { blockTitle, url }) {
+  const div = document.createElement('div');
+  div.classList.add('games');
+  div.innerHTML = `<p class="games__title">${blockTitle}</p><div class="games__container"></div>`;
+  blocks.forEach((block) => {
+    const title = block.querySelector('a').textContent;
+    const src = url + block.querySelector('a').href.slice(block.querySelector('a').href.lastIndexOf('/'));
+    const content = block.querySelector('.entry-content');
+    const img = content.querySelector('img').src;
+    const text = content.textContent;
+    div.querySelector('.games__container').innerHTML += `
+        <div class="games__item">
+          <a class="games__subtitle" href="${src}" target="_blank">${title}</a>
+          <img class="games__img" src=${img}>
+          <p class="games__text">${text}</p>
+        </div>
+      `;
+    gamesBlock.append(div);
+  });
+}

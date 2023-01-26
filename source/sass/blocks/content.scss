@@ -47,7 +47,8 @@
       display: none;
     }
   }
-  &__item[data-src='films']{
+  &__item[data-src='films'],
+  &__item[data-src='games']{
     max-width: none;
   }
 }
@@ -69,7 +70,7 @@
     }
     &__wrapper {
       border-right: 1px solid $border-color;
-      height: 100%;
+      min-height: 100%;
     }
     &__container {
       overflow-y: scroll;

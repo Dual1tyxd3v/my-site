@@ -1,0 +1,37 @@
+.games {
+  &__item {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    background-color: #011221;
+    border: 1px solid #1E2D3D;
+    border-radius: 15px;
+  }
+  &__title {
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    color: #5565E8;
+  }
+  &__subtitle {
+    display: inline-block;
+    margin-bottom: 15px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    color: $pink;
+  }
+  &__img {
+    margin-bottom: 15px;
+  }
+  &__text {
+    font-weight: 450;
+    font-size: 16px;
+    line-height: 150%;
+    color: $grey;
+  }
+  &__container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
