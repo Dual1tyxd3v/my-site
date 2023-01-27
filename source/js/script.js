@@ -269,7 +269,8 @@ function formatCodeText() {
 // отправка формы
 form && form.addEventListener('submit', (e) => {
   e.preventDefault();
-  sendMessage();
+  const check = checkForm(e.target);
+  check && sendMessage();
 });
 async function sendMessage() {
   const data = new FormData(form);
@@ -288,6 +289,23 @@ function showThanks() {
   document.querySelector('.thanks').classList.add('description__item--active');
 }
 //
+function checkForm(form) {
+  const name = form.querySelector('#name').value.length > 1;
+  !name
+    ? form.querySelector('.name__error').textContent = '//некорректное имя'
+    : form.querySelector('.name__error').textContent = '';
+  const message = form.querySelector('#message').value.length > 0;
+  !message
+    ? form.querySelector('.message__error').textContent = '//введите текст сообщения'
+    : form.querySelector('.message__error').textContent = '';
+  const email = form.querySelector('#email').value.match(/.+@.+\..+/i);
+  !email
+  ? form.querySelector('.email__error').textContent = '//некорректный email'
+  : form.querySelector('.email__error').textContent = '';
+
+  return (name && email && message);
+}
+
  errorBtn && errorBtn.addEventListener('click', () => {
   error.style.display = 'none';
 });

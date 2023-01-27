@@ -3,6 +3,7 @@
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
+  min-height: 430px;
   & .content__link {
     margin-bottom: 0;
   }
@@ -15,10 +16,19 @@
   }
   &__field {
     display: flex;
+    position: relative;
     flex-direction: column;
   }
   &__field {
-    margin-bottom: 18px;
+    margin-bottom: 20px;
+  }
+  &__error {
+    position: absolute;
+    bottom: -22px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: #E99287;;
   }
   &__input {
     background-color: #011221;
