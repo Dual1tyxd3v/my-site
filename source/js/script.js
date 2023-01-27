@@ -12,11 +12,15 @@ const mainMenu = document.querySelector('.main__menu');
 const filmsBlock = document.querySelector('.content__item[data-src="films"]');
 const gamesBlock = document.querySelector('.content__item[data-src="games"');
 const inputs = document.querySelectorAll('input,textarea');
+const error = document.querySelector('.error');
+const errorMessage = document.querySelector('.error__text');
+const errorBtn = document.querySelector('.error__btn');
+const errorTitle = document.querySelector('.error__title');
 
 const LETTER_WIDTH = 10.79;
 const PADDING = 54;
 const PREFIX_WIDTH = 129;
-const ZAGONKA__URL = 'http://zagonka.zagonkov.gb.net';
+const ZAGONKA_URL = 'http://zagonka.zagonkov.gb.net';
 const NOOB_CLUB_URL = 'https://www.noob-club.ru';
 const SPINNER = '<img width="128" src="./img/spinner.svg" style="width: 200px; display: block; margin: 0 auto">';
 const form = document.querySelector('.form');
@@ -148,10 +152,21 @@ async function loadGames() {
 // -- загрузка с фронта
 async function loadFilmsCORS() {
   filmsBlock.innerHTML = SPINNER;
-  const html = await fetch(ZAGONKA__URL)
-    .then(res => res.text())
+  const html = await fetch(ZAGONKA_URL)
+    .then(res => {
+      if (!res.ok) {
+        loadFilms();
+        return;
+      }
+      return res.text();
+    })
     .then(res => res)
     .catch(e => loadFilms());
+  if (!html || html.includes('failed to open stream')) {
+    showError('Ошибка загрузки.<br>Перезагрузите страницу', 200);
+    filmsBlock.innerHTML = '';
+    return;
+  }
 
   const div = document.createElement('div');
   div.innerHTML = html.split('<body')[1];
@@ -169,11 +184,20 @@ async function loadFilmsCORS() {
 // -- загрузка с php
 async function loadFilms() {
   const data = new FormData();
-  data.set('url', ZAGONKA__URL);
+  data.set('url', ZAGONKA_URL);
   return await fetch('content.php', { body: data, method: 'POST' })
-    .then(res => res.text())
+    .then(res => {
+      if (!res.ok) {
+        showError('Ошибка загрузки.<br>Перезагрузите страницу 1', res.status)
+        throw new Error('Error');
+      }
+      return res.text();
+    })
     .then(res => res)
-    .catch(e => alert(e));
+    .catch(e => {
+      showError('Ошибка загрузки.<br>Перезагрузите страницу', 001);
+      return null;
+    });
 }
 //
 // отрисовка списка фильмов
@@ -183,9 +207,9 @@ function renderFilms({ blocks, titles }) {
     div.classList.add('films');
     div.innerHTML = `<p class="films__title">${titles[i]}</p><div class="films__container"></div>`;
     block.querySelectorAll('.short').forEach((film) => {
-      const imgSrc = ZAGONKA__URL + film.querySelector('img').dataset.srcset.replace(' 190w', '');
+      const imgSrc = ZAGONKA_URL + film.querySelector('img').dataset.srcset.replace(' 190w', '');
       const title = film.querySelector('a').textContent;
-      const src = ZAGONKA__URL + film.querySelector('a').href.slice(film.querySelector('a').href.lastIndexOf('/'));
+      const src = ZAGONKA_URL + film.querySelector('a').href.slice(film.querySelector('a').href.lastIndexOf('/'));
       div.querySelector('.films__container').innerHTML += `
         <a class="films__item" href="${src}" target="_blank">
           <img class="films__img" src="${imgSrc}">
@@ -242,14 +266,15 @@ function formatCodeText() {
   }
 }
 //
-form.addEventListener('submit', (e) => {
+// отправка формы
+form && form.addEventListener('submit', (e) => {
   e.preventDefault();
   sendMessage();
 });
 async function sendMessage() {
   const data = new FormData(form);
 
-  const answer = await fetch('form.php', {method: 'POST', body: data})
+  const answer = await fetch('form.php', { method: 'POST', body: data })
     .then(res => res.text())
     .then(res => res)
     .catch(e => alert(e.message));
@@ -261,4 +286,13 @@ async function sendMessage() {
 function showThanks() {
   document.querySelector('.description__item--active').classList.remove('description__item--active');
   document.querySelector('.thanks').classList.add('description__item--active');
+}
+//
+ errorBtn && errorBtn.addEventListener('click', () => {
+  error.style.display = 'none';
+});
+function showError(message, status) {
+  errorMessage.innerHTML = message;
+  errorTitle.textContent = `System Error - ${status}`;
+  error.style.display = 'flex';
 }
