@@ -16,6 +16,9 @@
   &-contacts .content {
     display: none;
   }
+  &--projects .content {
+    display: none;
+  }
 }
 .header--opened ~ .main {
   display: none;

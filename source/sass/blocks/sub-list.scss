@@ -4,6 +4,41 @@
   &--opened {
     display: block;
   }
+  &__label {
+    font-weight: 400;
+    display: flex;
+    font-size: 16px;
+    line-height: 21px;
+    color: #fff;
+    background-position-x: 43px;
+    cursor: pointer;
+    &--html {
+      background-image: url("../img/icon-html.svg");
+    }
+    &--react {
+      background-image: url("../img/icon-react.svg");
+    }
+    &::before {
+      content: "";
+      display: block;
+      width: 19px;
+      height: 19px;
+      margin-right: 58px;
+      background-color: #011627;
+      border: 1px solid #607B96;
+      border-radius: 2px;
+    }
+  }
+  &__checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    &:checked ~ .sub-list__label::before {
+      background-color: $grey;
+      background-image: url("../img/icon-checked.svg");
+      background-position: center;
+    }
+  }
   &__button {
     padding: 5px 27px;
     display: flex;
@@ -26,7 +61,6 @@
       margin-right: 13.5px;
       background-image: url("../img/button-arrow--right.svg");
     }
-
     &--active {
       &::before {
         background-image: url("../img/button-arrow--down.svg");
@@ -45,6 +79,14 @@
     font-size: 16px;
     line-height: 21px;
     color: $grey;
+    &--projects {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
     &::before {
       content: "";
       display: block;

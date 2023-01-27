@@ -26,51 +26,38 @@
             <a href="about.html" class="navigation__item">_about-me</a>
           </li>
           <li>
-            <a href="projects.html" class="navigation__item">_projects</a>
+            <a href="projects.html" class="navigation__item navigation__item--active">_projects</a>
           </li>
           <li>
-            <a href="contacts" class="navigation__item navigation__item--active">_contact-me</a>
+            <a href="contacts" class="navigation__item">_contact-me</a>
           </li>
         </ul>
       </nav>
     </header>
 
-    <p class="page-title">_contacts</p>
+    <p class="page-title">_projects</p>
 
-    <main class="main main-contacts">
+    <main class="main main--projects">
       <div class="main__menu">
         <ul class="main__list">
           <li class="main__item">
-            <button class="sub-list__button sub-list__button--active" type="button" data-src="contacts">
+            <button class="sub-list__button" type="button" data-src="projects">
               <svg class="sub-list__icon" width="14.44" height="13" viewBox="0 0 16 13" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
-                <path class="sub-list__icon--contacts"
+                <path class="sub-list__icon--hobbies"
                   d="M15.0802 3.61111V12.2778C15.0802 12.4693 15.0041 12.653 14.8687 12.7885C14.7332 12.9239 14.5495 13 14.358 13H1.35796C1.16642 13 0.982719 12.9239 0.847276 12.7885C0.711833 12.653 0.635742 12.4693 0.635742 12.2778V2.88889H14.358C14.5495 2.88889 14.7332 2.96498 14.8687 3.10042C15.0041 3.23587 15.0802 3.41957 15.0802 3.61111ZM8.15696 1.44444H0.635742V0.722222C0.635742 0.530677 0.711833 0.346977 0.847276 0.211534C0.982719 0.076091 1.16642 0 1.35796 0H6.71252L8.15696 1.44444Z"
                   fill="#E99287" />
               </svg>
-              contacts
+              projects
             </button>
-            <ul class="main__sub-list sub-list sub-list--opened sub-list--contacts">
-              <li>
-                <a href="mailto:d3vilc0re@gmail.com" class="sub-list__item sub-list__item--mail"
-                  data-src="contacts__item">d3vilc0re@gmail.com</a>
+            <ul class="main__sub-list sub-list">
+              <li class="sub-list__item--projects">
+                <input class="sub-list__checkbox" type="checkbox" name="react" id="react" checked>
+                <label class="sub-list__label sub-list__label--react" for="react">React</label>
               </li>
-            </ul>
-          </li>
-          <li class="main__item">
-            <button class="sub-list__button sub-list__button--active" type="button" data-src="contacts">
-              <svg class="sub-list__icon" width="14.44" height="13" viewBox="0 0 16 13" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path class="sub-list__icon--find"
-                  d="M15.0802 3.61111V12.2778C15.0802 12.4693 15.0041 12.653 14.8687 12.7885C14.7332 12.9239 14.5495 13 14.358 13H1.35796C1.16642 13 0.982719 12.9239 0.847276 12.7885C0.711833 12.653 0.635742 12.4693 0.635742 12.2778V2.88889H14.358C14.5495 2.88889 14.7332 2.96498 14.8687 3.10042C15.0041 3.23587 15.0802 3.41957 15.0802 3.61111ZM8.15696 1.44444H0.635742V0.722222C0.635742 0.530677 0.711833 0.346977 0.847276 0.211534C0.982719 0.076091 1.16642 0 1.35796 0H6.71252L8.15696 1.44444Z"
-                  fill="#E99287" />
-              </svg>
-              find-me-also-in
-            </button>
-            <ul class="main__sub-list sub-list sub-list--opened sub-list--contacts">
-              <li>
-                <a href="https://www.codewars.com/users/b3rzxd3v/" class="sub-list__item sub-list__item--find"
-                  target="_blank" data-src="contacts__item">Codewars profile</a>
+              <li class="sub-list__item--projects">
+                <input class="sub-list__checkbox" type="checkbox" name="html" id="html" checked>
+                <label class="sub-list__label sub-list__label--html" for="html">Html and CSS</label>
               </li>
             </ul>
           </li>
@@ -80,9 +67,9 @@
         <div class="description__header">
           <div class="description__wrapper">
             <span class="description__prefix">// </span>
-            <h4 class="description__title">contacts</h4>
+            <h4 class="description__title">projects</h4>
             <span class="description__prefix description--grey"> / </span>
-            <span class="description__subtitle description--grey"></span>
+            <span class="description__subtitle description--grey">all</span>
           </div>
         </div>
         <div class="description__content">

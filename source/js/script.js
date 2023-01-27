@@ -11,11 +11,12 @@ const content = document.querySelector('.content');
 const mainMenu = document.querySelector('.main__menu');
 const filmsBlock = document.querySelector('.content__item[data-src="films"]');
 const gamesBlock = document.querySelector('.content__item[data-src="games"');
-const inputs = document.querySelectorAll('input,textarea');
+const inputs = document.querySelectorAll('input[type="text"],textarea');
 const error = document.querySelector('.error');
 const errorMessage = document.querySelector('.error__text');
 const errorBtn = document.querySelector('.error__btn');
 const errorTitle = document.querySelector('.error__title');
+const projectsChecks = document.querySelectorAll('.sub-list__checkbox');
 
 const LETTER_WIDTH = 10.79;
 const PADDING = 54;
@@ -244,7 +245,7 @@ function renderGames(blocks, { blockTitle, url }) {
 }
 //
 // перерисовка блока с кодом
-inputs.forEach((input) => {
+inputs && inputs.forEach((input) => {
   input.addEventListener('input', (e) => {
     const data = e.target.dataset.src;
     document.querySelector(`.${data}`).textContent = `'${input.value}'`;
@@ -314,3 +315,9 @@ function showError(message, status) {
   errorTitle.textContent = `System Error - ${status}`;
   error.style.display = 'flex';
 }
+
+projectsChecks && projectsChecks.forEach((box) => {
+  box.addEventListener('change', (e) => {
+    console.log(e.target.checked)
+  })
+});
