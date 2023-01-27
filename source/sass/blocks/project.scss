@@ -1,0 +1,67 @@
+.project {
+  width: 291px;
+  margin: 0 auto;
+  display: block !important;
+  &__title {
+    margin-bottom: 15px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    color: #5565E8;
+  }
+  &__postfix {
+    font-weight: 450;
+    font-size: 16px;
+    line-height: 21px;
+    color: #607B96;
+  }
+  &__item {
+    background: #011221;
+    border: 1px solid #1E2D3D;
+    border-radius: 15px;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 28px;
+      height: 28px;
+      top: 17px;
+      right: 17px;
+      z-index: 3;
+    }
+    &--react::after {
+      background-image: url("../img/icon-project--react.svg");
+    }
+    &--html::after {
+      background-image: url("../img/icon-project--html.svg");
+    }
+  }
+  &__img {
+    border-radius: 15px 15px 0 0;
+    margin-bottom: 29px;
+    position: relative;
+  }
+  &__text {
+    font-weight: 450;
+    font-size: 16px;
+    line-height: 130%;
+    color: #607B96;
+    margin-bottom: 23px;
+  }
+  &__text-wrapper {
+    padding: 0 31px;
+  }
+  &__button {
+    margin-bottom: 32px;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .project {
+    width: 370px ;
+    &__item::after {
+      top: 19px;
+    }
+  }
+}

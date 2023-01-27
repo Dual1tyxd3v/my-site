@@ -29,7 +29,7 @@
             <a href="projects.html" class="navigation__item navigation__item--active">_projects</a>
           </li>
           <li>
-            <a href="contacts" class="navigation__item">_contact-me</a>
+            <a href="contacts.html" class="navigation__item">_contact-me</a>
           </li>
         </ul>
       </nav>
@@ -52,11 +52,11 @@
             </button>
             <ul class="main__sub-list sub-list">
               <li class="sub-list__item--projects">
-                <input class="sub-list__checkbox" type="checkbox" name="react" id="react" checked>
+                <input class="sub-list__checkbox" type="checkbox" name="react" id="react" checked data-src="react">
                 <label class="sub-list__label sub-list__label--react" for="react">React</label>
               </li>
               <li class="sub-list__item--projects">
-                <input class="sub-list__checkbox" type="checkbox" name="html" id="html" checked>
+                <input class="sub-list__checkbox" type="checkbox" name="html" id="html" checked data-src="html">
                 <label class="sub-list__label sub-list__label--html" for="html">Html and CSS</label>
               </li>
             </ul>
@@ -73,52 +73,36 @@
           </div>
         </div>
         <div class="description__content">
-          <div class="description__item description__item--active" data-src="contacts">
-            <form action="form.php" method="POST" class="description__form form">
-              <div class="form__field">
-                <label class="form__label" for="name">_name:</label>
-                <input class="form__input" name="name" type="text" id="name" data-src="js-name">
-                <p class="form__error name__error"></p>
+          <div class="description__content-wrapper">
+            <div class="description__item description__item--active project" data-src="html">
+              <h3 class="project__title">
+                Project <span class="project__number"></span> <span class="project__postfix">/ _pink</span>
+              </h3>
+              <div class="project__item project__item--html">
+                <picture>
+                  <source media="(min-width: 1200px)" srcset="./img/project-pink-desktop.jpg">
+                  <img src="./img/project-pink.jpg" alt="Проект Pink" class="project__img">
+                </picture>
+                <div class="project__text-wrapper">
+                  <p class="project__text">Проект "Pink". Адаптивная верстка сайта по макету от HTMLAcademy</p>
+                  <a href="https://github.com/Dual1tyxd3v/pink--adaptive"
+                    class="project__button content__link">view-project</a>
+                </div>
               </div>
-              <div class="form__field">
-                <label class="form__label" for="email">_email:</label>
-                <input class="form__input" name="email" type="text" id="email" data-src="js-email">
-                <p class="form__error email__error"></p>
-              </div>
-              <div class="form__field">
-                <label class="form__label" for="message">_message:</label>
-                <textarea class="form__input form__input--textarea" name="message" id="message" data-src="js-message"></textarea>
-                <p class="form__error message__error"></p>
-              </div>
-              <button class="content__link" type="submit">submit-message</button>
-            </form>
-          </div>
-          <div class="description__item thanks" data-src="thanks">
-            <h3 class="thanks__title">Thank you! 🤘</h3>
-            <p class="thanks__text">Your message has been accepted. You will recieve answer really soon!</p>
-            <a href="contacts.html" class="content__link" data-src="contacts">send-new-message</a>
-          </div>
-        </div>
-      </div>
-      <div class="main__content content">
-        <div class="content__header"></div>
-        <div class="content__container">
-          <div class="content__wrapper">
-            <h4 class="content__title">// additional content</h4>
-            <div class="content__item content__item--active" data-src="contacts">
-              <div class="content__contacts contacts">
-                <div class="contacts__prefix"></div>
-                <div class="contacts__code">
-                  <code>
-                    <span class="contacts__code contacts__code--pink">const</span> button <span class="contacts__code contacts__code--pink">=</span> document<span class="contacts__code contacts__code--grey">.</span>querySelector<span class="contacts__code contacts__code--grey">(<span class="contacts__code contacts__code--orange">'.form__button'</span>);<br></span>
-                    <span class="contacts__code contacts__code--pink">const</span> form <span class="contacts__code contacts__code--pink">=</span> document<span class="contacts__code contacts__code--grey">.</span>querySelector<span class="contacts__code contacts__code--grey">(<span class="contacts__code contacts__code--orange">'.form'</span>);</span><br><br>
-                    <span class="contacts__code contacts__code--pink">const</span> message <span class="contacts__code contacts__code--pink">=</span> <span class="contacts__code contacts__code--grey">{<br>
-                    <span class="contacts__code">&nbsp;&nbsp;name</span>: <span class="contacts__code contacts__code--orange js-name">''</span>,<br>
-                    <span class="contacts__code">&nbsp;&nbsp;email</span>: <span class="contacts__code contacts__code--orange js-email">''</span>,<br>
-                    <span class="contacts__code">&nbsp;&nbsp;message</span>: <span class="contacts__code contacts__code--orange js-message">''</span><br>};</span><br><br>
-                    button<span class="contacts__code contacts__code--grey">.</span>addEventListener<span class="contacts__code contacts__code--grey">(<span class="contacts__code contacts__code--orange">'click'</span>, () <span class="contacts__code contacts__code--pink">=></span> {</span><br>
-                      &nbsp;&nbsp;form<span class="contacts__code contacts__code--grey">.</span>send<span class="contacts__code contacts__code--grey">(<span class="contacts__code">message</span>);<br>
-                    });</span></code>
+            </div>
+            <div class="description__item description__item--active project" data-src="react">
+              <h3 class="project__title">
+                Project <span class="project__number"></span> <span class="project__postfix">/ _six-cities</span>
+              </h3>
+              <div class="project__item project__item--react">
+                <picture>
+                  <source media="(min-width: 1200px)" srcset="./img/project-six-cities-desktop.jpg">
+                  <img src="./img/project-six-cities.jpg" alt="Проект Six Cities" class="project__img">
+                </picture>
+                <div class="project__text-wrapper">
+                  <p class="project__text">Проект "Six Cities". Личный проект - SPA приложение, с курса HTMLAcademy</p>
+                  <a href="https://github.com/Dual1tyxd3v/2141243-six-cities-10"
+                    class="project__button content__link">view-project</a>
                 </div>
               </div>
             </div>

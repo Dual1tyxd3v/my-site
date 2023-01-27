@@ -90,6 +90,7 @@ menuBtns.forEach((btn) => {
 });
 
 function changeContent(target) {
+  if (projectsChecks) return;
   const data = target.dataset.src.split('--')[0];
   descriptionTitle.textContent = data;
   content.classList.remove('main__content--long');
@@ -285,11 +286,12 @@ async function sendMessage() {
     form.reset();
   }
 }
+// -- показ окна спасибо
 function showThanks() {
   document.querySelector('.description__item--active').classList.remove('description__item--active');
   document.querySelector('.thanks').classList.add('description__item--active');
 }
-//
+// -- проверка валидности формы
 function checkForm(form) {
   const name = form.querySelector('#name').value.length > 1;
   !name
@@ -306,8 +308,9 @@ function checkForm(form) {
 
   return (name && email && message);
 }
-
- errorBtn && errorBtn.addEventListener('click', () => {
+//
+// диалоговое окно с ошибкой
+errorBtn && errorBtn.addEventListener('click', () => {
   error.style.display = 'none';
 });
 function showError(message, status) {
@@ -315,9 +318,15 @@ function showError(message, status) {
   errorTitle.textContent = `System Error - ${status}`;
   error.style.display = 'flex';
 }
+//
+function addProjectNumber() {
+  const projects = document.querySelectorAll('.description__item--active');
+  projects.forEach((project, i) => {
+    project.querySelector('.project__number').textContent = i + 1;
+  });
+}
+projectsChecks && addProjectNumber();
 
 projectsChecks && projectsChecks.forEach((box) => {
-  box.addEventListener('change', (e) => {
-    console.log(e.target.checked)
-  })
+  
 });

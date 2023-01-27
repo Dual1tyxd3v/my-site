@@ -32,6 +32,13 @@
       display: block;
     }
   }
+  &__content-wrapper{
+    padding: 0 27px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    grid-gap: 27px;
+  }
 }
 
 @media (min-width: $desktop-width) {
@@ -52,6 +59,9 @@
         background-color: $grey; /*Цвет ползунка*/
         width: 24px;
       }
+    }
+    &__content-wrapper {
+      padding-top: 115px;
     }
     &__item[data-src='music'] .description__text-wrapper,
     &__item[data-src='games'] .description__text-wrapper{
