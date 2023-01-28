@@ -17,6 +17,7 @@ const errorMessage = document.querySelector('.error__text');
 const errorBtn = document.querySelector('.error__btn');
 const errorTitle = document.querySelector('.error__title');
 const projectsChecks = document.querySelectorAll('.sub-list__checkbox');
+const projectsSubtitle = document.querySelector('.description__subtitle');
 
 const LETTER_WIDTH = 10.79;
 const PADDING = 54;
@@ -90,7 +91,7 @@ menuBtns.forEach((btn) => {
 });
 
 function changeContent(target) {
-  if (projectsChecks) return;
+  if (projectsChecks.length !== 0) {return;}
   const data = target.dataset.src.split('--')[0];
   descriptionTitle.textContent = data;
   content.classList.remove('main__content--long');
@@ -320,13 +321,44 @@ function showError(message, status) {
 }
 //
 function addProjectNumber() {
+  if (!projectsChecks) return;
   const projects = document.querySelectorAll('.description__item--active');
   projects.forEach((project, i) => {
-    project.querySelector('.project__number').textContent = i + 1;
+    project.querySelector('.project__number').textContent = (i + 1);
   });
 }
-projectsChecks && addProjectNumber();
 
-projectsChecks && projectsChecks.forEach((box) => {
-  
+projectsChecks.length && addProjectNumber();
+
+function changeProjectsSubtitle() {
+  const activeChecks = document.querySelectorAll('.js-checked');
+  if (projectsChecks.length === activeChecks.length) {
+    projectsSubtitle.textContent = 'all';
+    return;
+  }
+  projectsSubtitle.textContent = '';
+  activeChecks.forEach((check, i) => {
+    projectsSubtitle.textContent += check.dataset.src + ((i + 1) === activeChecks.length
+      ? '' : ';');
+  });
+}
+projectsChecks.length && changeProjectsSubtitle();
+
+projectsChecks.length && projectsChecks.forEach((box) => {
+  box.addEventListener('change', (e) => {
+    let action = '';
+    if (e.target.checked) {
+      action = 'add';
+      e.target.classList.add('js-checked');
+    } else {
+      action = 'remove';
+      e.target.classList.remove('js-checked');
+    }
+    const data = e.target.dataset.src;
+    document.querySelectorAll(`.project[data-src="${data}"]`).forEach((project) => {
+      project.classList[action]('description__item--active');
+    });
+    changeProjectsSubtitle();
+    addProjectNumber();
+  });
 });

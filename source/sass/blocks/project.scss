@@ -1,7 +1,6 @@
 .project {
   width: 291px;
   margin: 0 auto;
-  display: block !important;
   &__title {
     margin-bottom: 15px;
     font-weight: 700;
@@ -59,7 +58,7 @@
 
 @media (min-width: $desktop-width) {
   .project {
-    width: 370px ;
+    width: 370px;
     &__item::after {
       top: 19px;
     }
