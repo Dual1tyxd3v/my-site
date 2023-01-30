@@ -1,5 +1,5 @@
 .sub-list {
-  padding: 16px 46.5px;
+  padding: 16px 0;
   display: none;
   &--opened {
     display: block;
@@ -75,8 +75,10 @@
     display: flex;
     align-items: center;
     margin-bottom: 8px;
+    padding-left: 34px;
     font-weight: 400;
     font-size: 16px;
+    padding-left: 46.5px;
     line-height: 21px;
     color: $grey;
     &--projects {
@@ -86,6 +88,10 @@
       &:last-child {
         margin-bottom: 0;
       }
+    }
+    &:hover {
+      color: #fff;
+      background-color: #263B50;
     }
     &::before {
       content: "";
@@ -159,6 +165,6 @@
         border-bottom: 1px solid $border-color;
       }
     }
-    padding: 18px 0 16px 34px;
+    padding: 18px 0 16px 0;
   }
 }
