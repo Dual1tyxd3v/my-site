@@ -33,6 +33,7 @@ img {
 }
 .container {
   border: 1px solid $border-color;
+  min-width: 300px;
   max-width: 900px;
   border-radius: 8px;
   margin: 0 auto;
@@ -60,7 +61,7 @@ img {
 @media (min-width: $desktop-width) {
   .container {
     max-width: 1782px;
-    max-height: 941px;
+    height: 941px;
     margin: 0 auto;
     background-image: url("../img/bg-desktop.png");
   background-position: right;

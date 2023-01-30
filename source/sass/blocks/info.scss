@@ -1,6 +1,6 @@
 .info {
   &__wrapper {
-    padding: 96px 27px 85px 27px;
+    padding: 96px 17px 85px 17px;
     display: flex;
     justify-content: space-between;
     max-width: 450px;
@@ -18,7 +18,7 @@
   }
   &__title {
     font-weight: 400;
-    font-size: 62px;
+    font-size: 42px;
     line-height: 100%;
     color: #E5E9F0;
     margin-bottom: 5px;
@@ -75,6 +75,7 @@
     }
     &__title {
       line-height: 81px;
+      font-size: 62px;
       margin-bottom: 0;
       & br {
         display: none;
