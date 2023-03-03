@@ -22,7 +22,7 @@ const projectsSubtitle = document.querySelector('.description__subtitle');
 const LETTER_WIDTH = 10.79;
 const PADDING = 54;
 const PREFIX_WIDTH = 129;
-const ZAGONKA_URL = 'http://zagonka.zagonkov.gb.net';
+const ZAGONKA_URL = 'http://zagonka1.zagonkov.gb.net';
 const NOOB_CLUB_URL = 'https://www.noob-club.ru';
 const SPINNER = '<img width="128" src="./img/spinner.svg" style="width: 200px; display: block; margin: 0 auto">';
 const form = document.querySelector('.form');
@@ -51,26 +51,15 @@ subListBtns.forEach((btn) => {
 });
 //
 // форматирование текста с описанием
-window.location.pathname === '/about.html' ? formatText() : null;
+document.fonts.ready.then(() => window.location.pathname.includes('/about.html') ? formatText() : null);
+
 function formatText() {
   const activeContent = document.querySelector('.description__item--active').querySelector('.description__text-wrapper');
   const prefixContainer = document.querySelector('.description__item--active').querySelector('.description__content-prefix');
 
   if (!prefixContainer) return;
 
-  const text = activeContent.textContent.replace(/[ ]+/g, ' ').replace(/\n/g, '').split(' ');
-  const containerWidth = document.querySelector('.description__item--active').clientWidth - PREFIX_WIDTH - PADDING;
-
-  let rows = 3;
-  let tempString = '';
-  for (let i = 0; i < text.length; i++) {
-    if ((tempString + text[i]).length * LETTER_WIDTH > containerWidth) {
-      rows++;
-      tempString = text[i] + ' ';
-      continue;
-    }
-    tempString += text[i] + ' ';
-  }
+  const rows = 1 + (activeContent.querySelector('p') && activeContent.querySelector('p').clientHeight / 27);
 
   prefixContainer.innerHTML = '';
   for (let i = 0; i < rows; i++) {
@@ -93,7 +82,7 @@ menuBtns.forEach((btn) => {
 function changeContent(target) {
   if (projectsChecks.length !== 0) {return;}
   const data = target.dataset.src.split('--')[0];
-  descriptionTitle.textContent = data;
+  descriptionTitle.textContent = target.textContent.trim();
   content.classList.remove('main__content--long');
   description.classList.remove('main__description--short');
   description.classList.remove('hide');
