@@ -38,8 +38,8 @@ window.addEventListener('resize', () => {
   if (document.documentElement.clientWidth > 999) {
     navigation.classList.remove('header--opened');
   }
-  window.location.pathname === '/about.html' ? formatText() : null;
-  formatCodeText();
+  window.location.pathname.includes('/about.html') ? formatText() : null;
+  window.location.pathname.includes('/contacts.html') ? formatCodeText() : null;
 });
 //
 // кнопки меню
