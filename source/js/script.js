@@ -309,6 +309,7 @@ function showError(message, status) {
   error.style.display = 'flex';
 }
 //
+// изменение заголовков списка проектов
 function addProjectNumber() {
   if (!projectsChecks) return;
   const projects = document.querySelectorAll('.description__item--active');
@@ -322,7 +323,7 @@ projectsChecks.length && addProjectNumber();
 function changeProjectsSubtitle() {
   const activeChecks = document.querySelectorAll('.js-checked');
   if (projectsChecks.length === activeChecks.length) {
-    projectsSubtitle.textContent = 'all';
+    projectsSubtitle.textContent = 'все';
     return;
   }
   projectsSubtitle.textContent = '';
@@ -351,3 +352,4 @@ projectsChecks.length && projectsChecks.forEach((box) => {
     addProjectNumber();
   });
 });
+//
