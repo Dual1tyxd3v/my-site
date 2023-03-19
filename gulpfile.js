@@ -98,11 +98,10 @@ const js = () => {
 exports.js = js;
 
 const images = () => {
-  return gulp.src('source/img/*.{jpg,jpeg,png,svg}')
+  return gulp.src('source/img/*.{jpg,jpeg,png}')
     .pipe(imageMin([
       imageMin.optipng({optimizationLevel: 3}),
       imageMin.mozjpeg({progressive: false}),
-      imageMin.svgo()
     ]))
     .pipe(gulp.dest('build/img'));
 }
