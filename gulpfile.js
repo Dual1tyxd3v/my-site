@@ -1,45 +1,29 @@
 const gulp = require("gulp");
-const plumber = require("gulp-plumber");
+const sass = require('gulp-sass')(require('sass'));
 const sourcemap = require("gulp-sourcemaps");
-const less = require("gulp-sass");
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
-const sync = require("browser-sync").create();
+const sync = require("browser-sync");
+const fs = require("fs");
+const path = require("path");
 const csso = require("gulp-csso");
 const rename = require("gulp-rename");
-const imagemin = require("gulp-imagemin");
-
-// Styles
+const imageMin = require("gulp-imagemin");
+const webP = require("gulp-webp");
+const jsMin = require("gulp-jsmin");
+const clean = require("gulp-clean");
 
 const styles = () => {
   return gulp.src("source/sass/style.scss")
-    .pipe(plumber())
     .pipe(sourcemap.init())
-    .pipe(less())
-    .pipe(postcss([
-      autoprefixer()
-    ]))
-    /* .pipe(csso())
-    .pipe(rename("style.min.css")) */
+    .pipe(sass())
+    .pipe(postcss([autoprefixer]))
     .pipe(sourcemap.write("."))
     .pipe(gulp.dest("source/css"))
     .pipe(sync.stream());
 }
 
 exports.styles = styles;
-
-const imagz = () => {
-  return gulp.src("source/img/**/*.{jpg,png,svg}")
-    .pipe(imagemin([
-      imagemin.optipng({optimizationLevel: 3}),
-      imagemin.mozjpeg({progressive: false}),
-      imagemin.svgo()
-    ]))
-    .pipe(gulp.dest("source/nImg"))
-}
-
-exports.imagz = imagz;
-// Server
 
 const server = (done) => {
   sync.init({
@@ -52,16 +36,102 @@ const server = (done) => {
   });
   done();
 }
-
 exports.server = server;
-
-// Watcher
 
 const watcher = () => {
   gulp.watch("source/sass/**/*.scss", gulp.series("styles"));
   gulp.watch("source/*.html").on("change", sync.reload);
 }
 
-exports.default = gulp.series(
-  styles, server, watcher, imagz
+exports.dev = gulp.series(
+  styles, server, watcher
 );
+
+function changeSrc(src, target, ext) {
+  let files = [];
+
+  fs.readdirSync(src).forEach(file => {
+    if (path.extname(file) === ext) {
+      files.push(file);
+    }
+  });
+
+  files.forEach(file => {
+    fs.readFile(`${src}/${file}`, 'utf-8', (err, content) => {
+      const newContent = content.replace(/.jpg/g, '.webp').replace(/.jpeg/g, '.webp').replace(/.png/g, '.webp').replace(/style.css/g, 'style.min.css').replace(/script.js/g, 'script.min.js');
+
+      fs.writeFileSync(`${target}/${file}`, newContent, (err) => {
+        console.log(`${file} is done.`);
+      });
+    });
+  });
+}
+
+const change = (done) => {
+  changeSrc('source', 'build', '.html');
+  changeSrc('build/css', 'build/css', '.css');
+  done();
+}
+exports.change = change;
+
+const copyFonts = () => {
+  return gulp.src('source/fonts/*.{woff,woff2,ttf}')
+    .pipe(gulp.dest('build/fonts'));
+}
+exports.copyFonts = copyFonts;
+
+const style = () => {
+  return gulp.src('source/css/style.css')
+    .pipe(csso())
+    .pipe(rename('style.min.css'))
+    .pipe(gulp.dest('build/css'))
+    .pipe(sync.stream());
+}
+exports.style = style;
+
+const js = () => {
+  return gulp.src('source/js/*.js')
+    .pipe(gulp.dest('build/js'))
+    .pipe(jsMin())
+    .pipe(rename('script.min.js'))
+    .pipe(gulp.dest('build/js'));
+}
+exports.js = js;
+
+const images = () => {
+  return gulp.src('source/img/*.{jpg,jpeg,png,svg}')
+    .pipe(imageMin([
+      imageMin.optipng({optimizationLevel: 3}),
+      imageMin.mozjpeg({progressive: false}),
+      imageMin.svgo()
+    ]))
+    .pipe(gulp.dest('build/img'));
+}
+exports.images = images;
+
+const webpImg = () => {
+  return gulp.src('build/img/*.{jpg,jpeg,png}')
+    .pipe(webP({quality: 90}))
+    .pipe(gulp.dest('build/img'));
+}
+exports.webpImg = webpImg;
+
+const copyWebp = () => {
+  return gulp.src('source/img/*.webp')
+    .pipe(webP({quality: 90}))
+    .pipe(gulp.dest('build/img'));
+}
+
+const cleanImg = () => {
+  gulp.src('build/img/*.{jpg,jpeg,png}', {read: false})
+    .pipe(clean());
+}
+exports.cleanImg = cleanImg;
+
+const copyPHP = () => {
+  return gulp.src('source/js/*.php')
+    .pipe(gulp.dest('build/js'));
+}
+exports.copyPHP = copyPHP;
+
+exports.build = gulp.series(style, js, change, copyFonts, images, copyWebp, webpImg, copyPHP, cleanImg);

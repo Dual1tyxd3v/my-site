@@ -1,33 +1,33 @@
 {
-  "name": "my-site",
-  "private": true,
-  "description": "Мой сайт",
+  "name": "my_site",
+  "version": "1.0.0",
+  "description": "---",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build",
+    "start": "gulp dev"
+  },
+  "author": "Dual1tyXd3v",
+  "license": "ISC",
   "devDependencies": {
-    "@htmlacademy/editorconfig-cli": "1.0.0",
-    "autoprefixer": "9.8.4",
-    "browser-sync": "2.26.7",
-    "gulp": "4.0.2",
+    "@htmlacademy/editorconfig-cli": "^1.0.0",
+    "autoprefixer": "^10.4.13",
+    "browser-sync": "^2.28.3",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
     "gulp-csso": "^4.0.1",
     "gulp-imagemin": "^7.1.0",
-    "gulp-plumber": "1.2.1",
-    "gulp-postcss": "8.0.0",
-    "gulp-sass": "4.0.1",
-    "gulp-sourcemaps": "2.6.5",
-    "stylelint": "13.6.1",
-    "stylelint-config-htmlacademy": "0.1.4"
+    "gulp-jsmin": "^0.1.5",
+    "gulp-postcss": "^9.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-webp": "^4.0.1",
+    "sass": "^1.58.3",
+    "stylelint": "^15.2.0",
+    "stylelint-config-htmlacademy": "^1.1.4"
   },
-  "scripts": {
-    "editorconfig": "editorconfig-cli",
-    "stylelint": "stylelint \"source/sass/**/*.scss\" --syntax scss",
-    "test": "npm run editorconfig && npm run stylelint",
-    "build": "gulp styles",
-    "start": "gulp"
-  },
-  "browserslist": [
-    "last 2 versions",
-    "not dead",
-    "not ie <= 11"
-  ],
   "editorconfig-cli": [
     "*.json",
     "*.js",
@@ -35,11 +35,5 @@
     "source/js/**/*.js",
     "source/img/**/*.svg",
     "source/less/**/*.scss"
-  ],
-  "engines": {
-    "node": "12.18.2"
-  },
-  "dependencies": {
-    "gulp-rename": "^2.0.0"
-  }
+  ]
 }
