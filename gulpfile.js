@@ -91,7 +91,6 @@ exports.style = style;
 
 const js = () => {
   return gulp.src('source/js/*.js')
-    .pipe(gulp.dest('build/js'))
     .pipe(jsMin())
     .pipe(rename('script.min.js'))
     .pipe(gulp.dest('build/js'));

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.min.css">
+  <meta name="description"
+    content="Мой личный сайт портфолио.">
+  <title>Сайт портфолио</title>
+</head>
+
+<body>
+  <div class="container" style="background-image: none;">
+    <header class="header">
+      <a href="index.html" class="header__logo">dual1tyXd3v</a>
+      <nav class="header__navigation navigation">
+        <button class="navigation__button" type="button">
+          Кнопка меню
+          <span></span>
+        </button>
+        <ul class="navigation__menu">
+          <li>
+            <a href="index.html" class="navigation__item">_главная</a>
+          </li>
+          <li>
+            <a href="about.html" class="navigation__item">_обо мне</a>
+          </li>
+          <li>
+            <a href="projects.html" class="navigation__item navigation__item--active">_проекты</a>
+          </li>
+          <li>
+            <a href="contacts.html" class="navigation__item">_контакты</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <p class="page-title">_проекты</p>
+
+    <main class="main main--projects">
+      <div class="main__menu">
+        <ul class="main__list">
+          <li class="main__item">
+            <button class="sub-list__button" type="button" data-src="projects">
+              <svg class="sub-list__icon" width="14.44" height="13" viewBox="0 0 16 13" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path class="sub-list__icon--hobbies"
+                  d="M15.0802 3.61111V12.2778C15.0802 12.4693 15.0041 12.653 14.8687 12.7885C14.7332 12.9239 14.5495 13 14.358 13H1.35796C1.16642 13 0.982719 12.9239 0.847276 12.7885C0.711833 12.653 0.635742 12.4693 0.635742 12.2778V2.88889H14.358C14.5495 2.88889 14.7332 2.96498 14.8687 3.10042C15.0041 3.23587 15.0802 3.41957 15.0802 3.61111ZM8.15696 1.44444H0.635742V0.722222C0.635742 0.530677 0.711833 0.346977 0.847276 0.211534C0.982719 0.076091 1.16642 0 1.35796 0H6.71252L8.15696 1.44444Z"
+                  fill="#E99287" />
+              </svg>
+              проекты
+            </button>
+            <ul class="main__sub-list sub-list">
+              <li class="sub-list__item--projects">
+                <input class="sub-list__checkbox js-checked" type="checkbox" name="react" id="react" checked="true" data-src="react">
+                <label class="sub-list__label sub-list__label--react" for="react">React</label>
+              </li>
+              <li class="sub-list__item--projects">
+                <input class="sub-list__checkbox js-checked" type="checkbox" name="html" id="html" checked data-src="html">
+                <label class="sub-list__label sub-list__label--html" for="html">Html and CSS</label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="main__description description">
+        <div class="description__header">
+          <div class="description__wrapper">
+            <span class="description__prefix">// </span>
+            <h4 class="description__title">проекты</h4>
+            <span class="description__prefix description__prefix--last description--grey"> / </span>
+            <span class="description__subtitle description--grey"></span>
+          </div>
+        </div>
+        <div class="description__content">
+          <div class="description__content-wrapper">
+            <div class="description__item description__item--active project" data-src="html">
+              <h3 class="project__title">
+                Project <span class="project__number"></span> <span class="project__postfix">/ _pink</span>
+              </h3>
+              <div class="project__item project__item--html">
+                <picture>
+                  <source media="(min-width: 1200px)" srcset="./img/project-pink-desktop.webp">
+                  <img src="./img/project-pink.webp" alt="Проект Pink" class="project__img">
+                </picture>
+                <div class="project__text-wrapper">
+                  <p class="project__text">Проект "Pink". Адаптивная верстка сайта по макету от HTMLAcademy</p>
+                  <a href="https://github.com/Dual1tyxd3v/pink--adaptive"
+                    class="project__button content__link">view-project</a>
+                </div>
+              </div>
+            </div>
+            <div class="description__item description__item--active project" data-src="react">
+              <h3 class="project__title">
+                Project <span class="project__number"></span> <span class="project__postfix">/ _six-cities</span>
+              </h3>
+              <div class="project__item project__item--react">
+                <picture>
+                  <source media="(min-width: 1200px)" srcset="./img/project-six-cities-desktop.webp">
+                  <img src="./img/project-six-cities.webp" alt="Проект Six Cities" class="project__img">
+                </picture>
+                <div class="project__text-wrapper">
+                  <p class="project__text">Проект "Six Cities". Личный проект - SPA приложение, с курса HTMLAcademy</p>
+                  <a href="https://github.com/Dual1tyxd3v/2141243-six-cities-10"
+                    class="project__button content__link">view-project</a>
+                </div>
+              </div>
+            </div>
+            <div class="description__item description__item--active project" data-src="react">
+              <h3 class="project__title">
+                Project <span class="project__number"></span> <span class="project__postfix">/ _guess-melody</span>
+              </h3>
+              <div class="project__item project__item--react">
+                <picture>
+                  <source media="(min-width: 1200px)" srcset="./img/project-guess-melody--desktop.webp">
+                  <img src="./img/project-guess-melody.webp" alt="Проект Guess Melody" class="project__img">
+                </picture>
+                <div class="project__text-wrapper">
+                  <p class="project__text">Проект "Guess Melody". Учебный демо проект, с курса HTMLAcademy</p>
+                  <a href="https://github.com/Dual1tyxd3v/guess-melody-10"
+                    class="project__button content__link">view-project</a>
+                </div>
+              </div>
+            </div>
+            <div class="description__item description__item--active project" data-src="react">
+              <h3 class="project__title">
+                Project <span class="project__number"></span> <span class="project__postfix">/ _what-to-watch</span>
+              </h3>
+              <div class="project__item project__item--react">
+                <picture>
+                  <source media="(min-width: 1200px)" srcset="./img/project-what-to-watch--desktop.webp">
+                  <img src="./img/project-what-to-watch.webp" alt="Проект What to Watch" class="project__img">
+                </picture>
+                <div class="project__text-wrapper">
+                  <p class="project__text">Проект "What to Watch". Личный проект - SPA приложение, с курса HTMLAcademy</p>
+                  <a href="https://github.com/Dual1tyxd3v/what-to-watch"
+                    class="project__button content__link">view-project</a>
+                </div>
+              </div>
+            </div>
+            <div class="description__item description__item--active project" data-src="html">
+              <h3 class="project__title">
+                Project <span class="project__number"></span> <span class="project__postfix">/ _portfolio</span>
+              </h3>
+              <div class="project__item project__item--html">
+                <picture>
+                  <source media="(min-width: 1200px)" srcset="./img/project-portfolio--desktop.webp">
+                  <img src="./img/project-portfolio.webp" alt="Проект Портфолио" class="project__img">
+                </picture>
+                <div class="project__text-wrapper">
+                  <p class="project__text">Проект "Сайт Портфолио". Адаптивная верстка лендинга по макету.<br></p>
+                  <a href="https://github.com/Dual1tyxd3v/portfolio--adaptive-landing"
+                    class="project__button content__link">view-project</a>
+                </div>
+              </div>
+            </div>
+            <div class="description__item description__item--active project" data-src="html">
+              <h3 class="project__title">
+                Project <span class="project__number"></span> <span class="project__postfix">/ _clean-and-simple</span>
+              </h3>
+              <div class="project__item project__item--html">
+                <picture>
+                  <source media="(min-width: 1200px)" srcset="./img/project-clean-and-simple--desktop.webp">
+                  <img src="./img/project-clean-and-simple.webp" alt="Проект Clean and Simple" class="project__img">
+                </picture>
+                <div class="project__text-wrapper">
+                  <p class="project__text">Проект "Clean and Simple". Обычная верстка лендинга по макету.<br></p>
+                  <a href="https://github.com/Dual1tyxd3v/clean-and-simple"
+                    class="project__button content__link">view-project</a>
+                </div>
+              </div>
+            </div>
+            <div class="description__item description__item--active project" data-src="html">
+              <h3 class="project__title">
+                Project <span class="project__number"></span> <span class="project__postfix">/ _my-site</span>
+              </h3>
+              <div class="project__item project__item--html">
+                <picture>
+                  <source media="(min-width: 1200px)" srcset="./img/project-my-site--desktop.webp">
+                  <img src="./img/project-my-site.webp" alt="Проект Мой личный сайт" class="project__img">
+                </picture>
+                <div class="project__text-wrapper">
+                  <p class="project__text">Проект "Мой личный сайт". Адаптивная верстка сайта-визитки по макету.<br></p>
+                  <a href="https://github.com/Dual1tyxd3v/my-site"
+                    class="project__button content__link">view-project</a>
+                </div>
+              </div>
+            </div>
+            <div class="description__item description__item--active project" data-src="html">
+              <h3 class="project__title">
+                Project <span class="project__number"></span> <span class="project__postfix">/ _star-lights</span>
+              </h3>
+              <div class="project__item project__item--html">
+                <picture>
+                  <source media="(min-width: 1200px)" srcset="./img/project-star-lights--desktop.webp">
+                  <img src="./img/project-star-lights.webp" alt="Проект Star Lights" class="project__img">
+                </picture>
+                <div class="project__text-wrapper">
+                  <p class="project__text">Проект "Star Lights". Адаптивная верстка сайта-лендинга по макету.<br></p>
+                  <a href="https://github.com/Dual1tyxd3v/my-site"
+                    class="project__button content__link">view-project</a>
+                </div>
+              </div>
+            </div>
+            <div class="description__item description__item--active project" data-src="html">
+              <h3 class="project__title">
+                Project <span class="project__number"></span> <span class="project__postfix">/ _MTGroup</span>
+              </h3>
+              <div class="project__item project__item--html">
+                <picture>
+                  <source media="(min-width: 1200px)" srcset="./img/project-MTGroup--desktop.webp">
+                  <img src="./img/project-MTGroup.webp" alt="Проект MTGroup" class="project__img">
+                </picture>
+                <div class="project__text-wrapper">
+                  <p class="project__text">Проект "MTGRoup". Адаптивная верстка сайта-лендинга по макету.<br></p>
+                  <a href="https://github.com/Dual1tyxd3v/my-site"
+                    class="project__button content__link">view-project</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__text">я в соц сетях:</p>
+      <ul class="footer__list">
+        <li>
+          <a href="https://vk.com" class="footer__item footer__item--vk"></a>
+        </li>
+        <li>
+          <a href="https://github.com/Dual1tyxd3v" class="footer__item footer__item--github">@Dual1tyxd3v</a>
+        </li>
+      </ul>
+    </footer>
+    <div class="error">
+      <h4 class="error__title">System Error</h4>
+      <p class="error__text">Упс...Что то пошло не так</p>
+      <button class="error__btn" type="button">OK</button>
+    </div>
+  </div>
+
+  <script src="./js/script.min.js"></script>
+</body>
+
+</html>
