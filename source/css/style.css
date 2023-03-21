@@ -557,7 +557,6 @@ img {
   display: flex;
   align-items: center;
   margin-bottom: 8px;
-  padding-left: 34px;
   font-weight: 400;
   font-size: 16px;
   padding-left: 46.5px;
@@ -568,6 +567,7 @@ img {
   display: flex;
   align-items: center;
   margin-bottom: 16px;
+  padding-left: 46.5px;
 }
 .sub-list__item--projects:last-child {
   margin-bottom: 0;
@@ -631,6 +631,9 @@ img {
   }
   .sub-list__button--active {
     border-bottom: 1px solid #1E2D3D;
+  }
+  .sub-list__item--projects {
+    padding-left: 34px;
   }
 }
 .description__header {

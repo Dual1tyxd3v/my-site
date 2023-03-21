@@ -82,7 +82,7 @@ menuBtns.forEach((btn) => {
 function changeContent(target) {
   if (projectsChecks.length !== 0) {return;}
   const data = target.dataset.src.split('--')[0];
-  descriptionTitle.textContent = target.textContent.trim();
+  descriptionTitle.textContent = target.textContent.trim().replace('=>', '');
   content.classList.remove('main__content--long');
   description.classList.remove('main__description--short');
   description.classList.remove('hide');
