@@ -11,7 +11,6 @@ const rename = require("gulp-rename");
 const imageMin = require("gulp-imagemin");
 const webP = require("gulp-webp");
 const jsMin = require("gulp-jsmin");
-const clean = require("gulp-clean");
 
 const styles = () => {
   return gulp.src("source/sass/style.scss")
@@ -63,6 +62,22 @@ function changeSrc(src, target, ext) {
       fs.writeFileSync(`${target}/${file}`, newContent, (err) => {
         console.log(`${file} is done.`);
       });
+    });
+  });
+}
+
+function deleteImgs() {
+  let files = [];
+
+  fs.readdirSync('build/img').forEach(file => {
+    if (path.extname(file) === '.png' || path.extname(file) === '.jpg' || path.extname(file) === '.jpeg') {
+      files.push(file);
+    }
+  });
+
+  files.forEach(file => {
+    fs.unlink(`build/img/${file}`, err => {
+      if (err) throw err;
     });
   });
 }
@@ -120,9 +135,18 @@ const copyWebp = () => {
     .pipe(gulp.dest('build/img'));
 }
 
-const cleanImg = () => {
-  gulp.src('build/img/*.{jpg,jpeg,png}', {read: false})
-    .pipe(clean());
+exports.copyWebp = copyWebp;
+
+const copySVG = () => {
+  return gulp.src('source/img/*.svg')
+    .pipe(gulp.dest('build/img'));
+}
+
+exports.copySVG = copySVG;
+
+const cleanImg = (done) => {
+  deleteImgs();
+  done();
 }
 exports.cleanImg = cleanImg;
 
@@ -132,4 +156,4 @@ const copyPHP = () => {
 }
 exports.copyPHP = copyPHP;
 
-exports.build = gulp.series(style, js, change, copyFonts, images, copyWebp, webpImg, copyPHP, cleanImg);
+exports.build = gulp.series(style, js, change, copyFonts, images, copyWebp, copySVG, webpImg, copyPHP, cleanImg);
