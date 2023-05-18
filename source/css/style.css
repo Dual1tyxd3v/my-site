@@ -559,7 +559,7 @@ img {
   margin-bottom: 8px;
   font-weight: 400;
   font-size: 16px;
-  padding-left: 46.5px;
+  padding-left: 34.5px;
   line-height: 21px;
   color: #607B96;
 }
@@ -715,6 +715,7 @@ img {
     display: block;
     padding-top: 18px;
     width: 129px;
+    min-width: 129px;
     padding-left: 27px;
   }
   .description__content-prefix div {
