@@ -9,7 +9,7 @@ const dailyPlaylist = document.querySelector('.daily-playlist');
 const description = document.querySelector('.description');
 const content = document.querySelector('.content');
 const mainMenu = document.querySelector('.main__menu');
-const filmsBlock = document.querySelector('.content__item[data-src="films"]');
+// const filmsBlock = document.querySelector('.content__item[data-src="films"]');
 const gamesBlock = document.querySelector('.content__item[data-src="games"');
 const inputs = document.querySelectorAll('input[type="text"],textarea');
 const error = document.querySelector('.error');
@@ -22,8 +22,15 @@ const projectsSubtitle = document.querySelector('.description__subtitle');
 const LETTER_WIDTH = 10.79;
 const PADDING = 54;
 const PREFIX_WIDTH = 129;
-const ZAGONKA_URL = 'http://zagonka1.zagonkov.gb.net';
-const NOOB_CLUB_URL = 'https://www.noob-club.ru';
+
+// --- WIP
+/* const ZAGONKA_URL = 'http://zagonka1.zagonkov.gb.net';
+const FILMS_API = 'http://localhost:3002/films';
+const FILMS_TITLES = ['@Zagonka new films', '@Zagonka new serials', '@Zagonka new seasons']; */
+//
+const api = {
+  GAMES: 'http://localhost:3000/nclub',
+};
 const SPINNER = '<img width="128" src="./img/spinner.svg" style="width: 200px; display: block; margin: 0 auto">';
 const form = document.querySelector('.form');
 
@@ -51,11 +58,15 @@ subListBtns.forEach((btn) => {
 });
 //
 // форматирование текста с описанием
-document.fonts.ready.then(() => window.location.pathname.includes('/about.html') ? formatText() : null);
+document.fonts.ready.then(() => (window.location.pathname.includes('/about.html') ? formatText() : null));
 
 function formatText() {
-  const activeContent = document.querySelector('.description__item--active').querySelector('.description__text-wrapper');
-  const prefixContainer = document.querySelector('.description__item--active').querySelector('.description__content-prefix');
+  const activeContent = document
+    .querySelector('.description__item--active')
+    ?.querySelector('.description__text-wrapper');
+  const prefixContainer = document
+    .querySelector('.description__item--active')
+    ?.querySelector('.description__content-prefix');
 
   if (!prefixContainer) return;
 
@@ -66,7 +77,9 @@ function formatText() {
     let star = ' * ';
     if (i === 0) star = '/**';
     if (i === rows - 1) star = ' */';
-    prefixContainer.innerHTML += `<div><div class="description__numbers">${i + 1}</div><div class="description__stars">${star}</div></div>`;
+    prefixContainer.innerHTML += `<div><div class="description__numbers">${
+      i + 1
+    }</div><div class="description__stars">${star}</div></div>`;
   }
 }
 //
@@ -80,7 +93,9 @@ menuBtns.forEach((btn) => {
 });
 
 function changeContent(target) {
-  if (projectsChecks.length !== 0) {return;}
+  if (projectsChecks.length !== 0) {
+    return;
+  }
   const data = target.dataset.src.split('--')[0];
   descriptionTitle.textContent = target.textContent.trim().replace('=>', '');
   content.classList.remove('main__content--long');
@@ -93,118 +108,88 @@ function changeContent(target) {
     content.classList.add('main__content--long');
     description.classList.add('main__description--short');
   }
-  if (data === 'films') {
+  /* if (data === 'films') {
     description.classList.add('hide');
     content.classList.add('full');
     mainMenu.classList.add('main__menu--long');
-  }
+  } */
 
   const postfix = target.dataset.src.split('--')[1] ? '--' + target.dataset.src.split('--')[1] : '';
-  document.querySelector('.description__item--active') && document.querySelector('.description__item--active').classList.remove('description__item--active');
+  document.querySelector('.description__item--active') &&
+    document.querySelector('.description__item--active').classList.remove('description__item--active');
 
-  document.querySelector(`.description__item[data-src="${data}"`) && document.querySelector(`.description__item[data-src="${data}"`).classList.add('description__item--active');
+  document.querySelector(`.description__item[data-src="${data}"`) &&
+    document.querySelector(`.description__item[data-src="${data}"`).classList.add('description__item--active');
 
   document.querySelector('.description__item--active')?.querySelector('.description__content-prefix') && formatText();
 
-  document.querySelector('.content__item--active') && document.querySelector('.content__item--active').classList.remove('content__item--active');
-  document.querySelector(`.content__item[data-src="${data + postfix}"]`) && document.querySelector(`.content__item[data-src="${data + postfix}"]`).classList.add('content__item--active');
-  if (data === 'films') {
-    loadFilmsCORS();
-  }
+  document.querySelector('.content__item--active') &&
+    document.querySelector('.content__item--active').classList.remove('content__item--active');
+  document.querySelector(`.content__item[data-src="${data + postfix}"]`) &&
+    document.querySelector(`.content__item[data-src="${data + postfix}"]`).classList.add('content__item--active');
+  /* if (data === 'films') {
+    loadFilms();
+  } */
   if (data === 'games' && target.dataset.catalog) {
-    loadGamesCORS();
+    loadGames();
   }
 }
 //
 // загрузка списка новостей
-// -- загрузка с фронта
-async function loadGamesCORS() {
-  gamesBlock.innerHTML = SPINNER;
-  const html = await fetch(NOOB_CLUB_URL)
-    .then(res => res.text())
-    .then(res => res)
-    .catch(e => loadGames());
-
-  const div = document.createElement('div');
-  div.innerHTML = html.split('<body')[1];
-  const blocks = div.querySelector('.content').querySelectorAll('.entry');
-  gamesBlock.innerHTML = '';
-  renderGames(blocks, { blockTitle: 'Noob-Club', url: NOOB_CLUB_URL });
-}
-// загрузка с php
 async function loadGames() {
-  const data = new FormData();
-  data.set('url', NOOB_CLUB_URL);
-  return await fetch('content.php', { body: data, method: 'POST' })
-    .then(res => res.text())
-    .then(res => res)
-    .catch(e => alert(e));
+  gamesBlock.innerHTML = SPINNER;
+  const { data } = await fetch(api.GAMES)
+    .then((res) => res.json())
+    .catch((e) => {
+      showError('Ошибка загрузки.<br>Перезагрузите страницу 1', res.status);
+      throw new Error(e);
+    });
+
+  gamesBlock.innerHTML = '';
+  renderGames(data, 'Noob-Club');
 }
+
 // загрузка списка фильмов
-// -- загрузка с фронта
-async function loadFilmsCORS() {
-  filmsBlock.innerHTML = SPINNER;
-  const html = await fetch(ZAGONKA_URL)
-    .then(res => {
-      if (!res.ok) {
-        loadFilms();
-        return;
-      }
-      return res.text();
-    })
-    .then(res => res)
-    .catch(e => loadFilms());
-  if (!html || html.includes('failed to open stream')) {
-    showError('Ошибка загрузки.<br>Перезагрузите страницу', 200);
-    filmsBlock.innerHTML = '';
-    return;
-  }
-
-  const div = document.createElement('div');
-  div.innerHTML = html.split('<body')[1];
-
-  const blocks = div.querySelectorAll('.box4');
-  const films = blocks[0];
-  const newSerials = blocks[3];
-  const newSeasons = blocks[4];
-  filmsBlock.innerHTML = '';
-  renderFilms({
-    blocks: [films, newSerials, newSeasons],
-    titles: ['@Zagonka new films', '@Zagonka new serials', '@Zagonka new seasons']
-  });
-}
-// -- загрузка с php
 async function loadFilms() {
-  const data = new FormData();
-  data.set('url', ZAGONKA_URL);
-  return await fetch('content.php', { body: data, method: 'POST' })
-    .then(res => {
+  await fetch(FILMS_API, {
+    body: JSON.stringify({ url: ZAGONKA_URL }),
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+  })
+    .then((res) => {
       if (!res.ok) {
-        showError('Ошибка загрузки.<br>Перезагрузите страницу 1', res.status)
+        showError('Ошибка загрузки.<br>Перезагрузите страницу 1', res.status);
         throw new Error('Error');
       }
-      return res.text();
+      return res.json();
     })
-    .then(res => res)
-    .catch(e => {
-      showError('Ошибка загрузки.<br>Перезагрузите страницу', 001);
+    .then((res) => {
+      if (res.error) {
+        showError(res.error, '000');
+        throw new Error(res.error);
+      }
+      renderFilms({ blocks: res.data, titles: FILMS_TITLES });
+    })
+    .catch((e) => {
+      showError('Ошибка загрузки.<br>Перезагрузите страницу', '001');
       return null;
     });
 }
 //
 // отрисовка списка фильмов
 function renderFilms({ blocks, titles }) {
+  filmsBlock.innerHTML = '';
   blocks.forEach((block, i) => {
     const div = document.createElement('div');
     div.classList.add('films');
     div.innerHTML = `<p class="films__title">${titles[i]}</p><div class="films__container"></div>`;
-    block.querySelectorAll('.short').forEach((film) => {
-      const imgSrc = ZAGONKA_URL + film.querySelector('img').dataset.srcset.replace(' 190w', '');
-      const title = film.querySelector('a').textContent;
-      const src = ZAGONKA_URL + film.querySelector('a').href.slice(film.querySelector('a').href.lastIndexOf('/'));
+
+    block.forEach(({ imgSrc, title, src }) => {
       div.querySelector('.films__container').innerHTML += `
-        <a class="films__item" href="${src}" target="_blank">
-          <img class="films__img" src="${imgSrc}">
+        <a class="films__item" href="${ZAGONKA_URL}${src}" target="_blank">
+          <img class="films__img" src="${ZAGONKA_URL}${imgSrc}">
           <p class="films__text">${title}</p>
         </a>
       `;
@@ -214,16 +199,13 @@ function renderFilms({ blocks, titles }) {
 }
 //
 // отрисовка новостей
-function renderGames(blocks, { blockTitle, url }) {
+function renderGames(blocks, blockTitle) {
   const div = document.createElement('div');
   div.classList.add('games');
   div.innerHTML = `<p class="games__title">${blockTitle}</p><div class="games__container"></div>`;
+
   blocks.forEach((block) => {
-    const title = block.querySelector('a').textContent;
-    const src = url + block.querySelector('a').href.slice(block.querySelector('a').href.lastIndexOf('/'));
-    const content = block.querySelector('.entry-content');
-    const img = content.querySelector('img').src;
-    const text = content.textContent;
+    const { title, src, img, text } = block;
     div.querySelector('.games__container').innerHTML += `
         <div class="games__item">
           <a class="games__subtitle" href="${src}" target="_blank">${title}</a>
@@ -236,13 +218,14 @@ function renderGames(blocks, { blockTitle, url }) {
 }
 //
 // перерисовка блока с кодом
-inputs && inputs.forEach((input) => {
-  input.addEventListener('input', (e) => {
-    const data = e.target.dataset.src;
-    document.querySelector(`.${data}`).textContent = `'${input.value}'`;
-    formatCodeText();
+inputs &&
+  inputs.forEach((input) => {
+    input.addEventListener('input', (e) => {
+      const data = e.target.dataset.src;
+      document.querySelector(`.${data}`).textContent = `'${input.value}'`;
+      formatCodeText();
+    });
   });
-});
 
 formatCodeText();
 function formatCodeText() {
@@ -259,19 +242,20 @@ function formatCodeText() {
 }
 //
 // отправка формы
-form && form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const check = checkForm(e.target);
-  check && sendMessage();
-});
+form &&
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const check = checkForm(e.target);
+    check && sendMessage();
+  });
 async function sendMessage() {
   const data = new FormData(form);
 
   const answer = await fetch('form.php', { method: 'POST', body: data })
-    .then(res => res.text())
-    .then(res => res)
-    .catch(e => alert(e.message));
-  if (answer === "1") {
+    .then((res) => res.text())
+    .then((res) => res)
+    .catch((e) => alert(e.message));
+  if (answer === '1') {
     showThanks();
     form.reset();
   }
@@ -285,24 +269,25 @@ function showThanks() {
 function checkForm(form) {
   const name = form.querySelector('#name').value.length > 1;
   !name
-    ? form.querySelector('.name__error').textContent = '//некорректное имя'
-    : form.querySelector('.name__error').textContent = '';
+    ? (form.querySelector('.name__error').textContent = '//некорректное имя')
+    : (form.querySelector('.name__error').textContent = '');
   const message = form.querySelector('#message').value.length > 0;
   !message
-    ? form.querySelector('.message__error').textContent = '//введите текст сообщения'
-    : form.querySelector('.message__error').textContent = '';
+    ? (form.querySelector('.message__error').textContent = '//введите текст сообщения')
+    : (form.querySelector('.message__error').textContent = '');
   const email = form.querySelector('#email').value.match(/.+@.+\..+/i);
   !email
-  ? form.querySelector('.email__error').textContent = '//некорректный email'
-  : form.querySelector('.email__error').textContent = '';
+    ? (form.querySelector('.email__error').textContent = '//некорректный email')
+    : (form.querySelector('.email__error').textContent = '');
 
-  return (name && email && message);
+  return name && email && message;
 }
 //
 // диалоговое окно с ошибкой
-errorBtn && errorBtn.addEventListener('click', () => {
-  error.style.display = 'none';
-});
+errorBtn &&
+  errorBtn.addEventListener('click', () => {
+    error.style.display = 'none';
+  });
 function showError(message, status) {
   errorMessage.innerHTML = message;
   errorTitle.textContent = `System Error - ${status}`;
@@ -314,7 +299,7 @@ function addProjectNumber() {
   if (!projectsChecks) return;
   const projects = document.querySelectorAll('.description__item--active');
   projects.forEach((project, i) => {
-    project.querySelector('.project__number').textContent = (i + 1);
+    project.querySelector('.project__number').textContent = i + 1;
   });
 }
 
@@ -328,28 +313,28 @@ function changeProjectsSubtitle() {
   }
   projectsSubtitle.textContent = '';
   activeChecks.forEach((check, i) => {
-    projectsSubtitle.textContent += check.dataset.src + ((i + 1) === activeChecks.length
-      ? '' : ';');
+    projectsSubtitle.textContent += check.dataset.src + (i + 1 === activeChecks.length ? '' : ';');
   });
 }
 projectsChecks.length && changeProjectsSubtitle();
 
-projectsChecks.length && projectsChecks.forEach((box) => {
-  box.addEventListener('change', (e) => {
-    let action = '';
-    if (e.target.checked) {
-      action = 'add';
-      e.target.classList.add('js-checked');
-    } else {
-      action = 'remove';
-      e.target.classList.remove('js-checked');
-    }
-    const data = e.target.dataset.src;
-    document.querySelectorAll(`.project[data-src="${data}"]`).forEach((project) => {
-      project.classList[action]('description__item--active');
+projectsChecks.length &&
+  projectsChecks.forEach((box) => {
+    box.addEventListener('change', (e) => {
+      let action = '';
+      if (e.target.checked) {
+        action = 'add';
+        e.target.classList.add('js-checked');
+      } else {
+        action = 'remove';
+        e.target.classList.remove('js-checked');
+      }
+      const data = e.target.dataset.src;
+      document.querySelectorAll(`.project[data-src="${data}"]`).forEach((project) => {
+        project.classList[action]('description__item--active');
+      });
+      changeProjectsSubtitle();
+      addProjectNumber();
     });
-    changeProjectsSubtitle();
-    addProjectNumber();
   });
-});
 //
