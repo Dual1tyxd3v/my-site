@@ -30,6 +30,7 @@ const FILMS_TITLES = ['@Zagonka new films', '@Zagonka new serials', '@Zagonka ne
 //
 const api = {
   GAMES: 'https://moexapi.vercel.app/nclub',
+  MESSAGE: 'https://moexapi.vercel.app/message',
 };
 const SPINNER = '<img width="128" src="./img/spinner.svg" style="width: 200px; display: block; margin: 0 auto">';
 const form = document.querySelector('.form');
@@ -248,14 +249,27 @@ form &&
     const check = checkForm(e.target);
     check && sendMessage();
   });
-async function sendMessage() {
-  const data = new FormData(form);
 
-  const answer = await fetch('form.php', { method: 'POST', body: data })
-    .then((res) => res.text())
-    .then((res) => res)
+async function sendMessage() {
+  const name = form.querySelector('#name').value;
+  const text = form.querySelector('#message').value;
+  const email = form.querySelector('#email').value;
+
+  const message = `
+  Имя: ${name}
+  E-mail: ${email}
+  Сообщение: ${text}`;
+
+  const answer = await fetch(api.MESSAGE, {
+    method: 'POST',
+    body: JSON.stringify({ message }),
+    headers: {
+      'Content-type': 'application/json',
+    },
+  })
+    .then((res) => res.json())
     .catch((e) => alert(e.message));
-  if (answer === '1') {
+  if (answer.isSuccess) {
     showThanks();
     form.reset();
   }
