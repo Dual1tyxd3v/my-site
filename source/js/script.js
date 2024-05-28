@@ -271,8 +271,15 @@ async function sendMessage() {
     .catch((e) => alert(e.message));
   if (answer.isSuccess) {
     showThanks();
-    form.reset();
+    formReset(form);
   }
+}
+// -- сброс формы
+function formReset(form) {
+  form.reset();
+  document.querySelector('.js-name').textContent = '""';
+  document.querySelector('.js-email').textContent = '""';
+  document.querySelector('.js-message').textContent = '""';
 }
 // -- показ окна спасибо
 function showThanks() {
