@@ -29,7 +29,7 @@ const FILMS_API = 'http://localhost:3002/films';
 const FILMS_TITLES = ['@Zagonka new films', '@Zagonka new serials', '@Zagonka new seasons']; */
 //
 const api = {
-  GAMES: 'https://moexapi.vercel.app/pob',
+  GAMES: 'https://moexapi.vercel.app/nclub',
 };
 const SPINNER = '<img width="128" src="./img/spinner.svg" style="width: 200px; display: block; margin: 0 auto">';
 const form = document.querySelector('.form');
