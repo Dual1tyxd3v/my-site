@@ -6,8 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.min.css">
-  <meta name="description"
-    content="Мой личный сайт портфолио.">
+  <meta name="description" content="Мой личный сайт портфолио.">
   <title>Сайт портфолио</title>
 </head>
 
@@ -54,11 +53,13 @@
             </button>
             <ul class="main__sub-list sub-list">
               <li class="sub-list__item--projects">
-                <input class="sub-list__checkbox js-checked" type="checkbox" name="react" id="react" checked="true" data-src="react">
+                <input class="sub-list__checkbox js-checked" type="checkbox" name="react" id="react" checked="true"
+                  data-src="react">
                 <label class="sub-list__label sub-list__label--react" for="react">React</label>
               </li>
               <li class="sub-list__item--projects">
-                <input class="sub-list__checkbox js-checked" type="checkbox" name="html" id="html" checked data-src="html">
+                <input class="sub-list__checkbox js-checked" type="checkbox" name="html" id="html" checked
+                  data-src="html">
                 <label class="sub-list__label sub-list__label--html" for="html">Html and CSS</label>
               </li>
             </ul>
@@ -76,6 +77,76 @@
         </div>
         <div class="description__content">
           <div class="description__content-wrapper">
+            <div class="description__item description__item--active project" data-src="react">
+              <h3 class="project__title">
+                Project <span class="project__number"></span> <span class="project__postfix">/ _tabs-downloader</span>
+              </h3>
+              <div class="project__item project__item--react">
+                <picture>
+                  <source media="(min-width: 1200px)" srcset="./img/project-tab-downloader.webp">
+                  <img src="./img/project-tab-downloader.webp" alt="Проект Tabs Downloader" class="project__img">
+                </picture>
+                <div class="project__text-wrapper">
+                  <p class="project__text">Проект "Tabs Downloader". Приложение для скачивания табулатур с сайта
+                    Songsterr</p>
+                  <a href="https://github.com/Dual1tyxd3v/tabs-downloader"
+                    class="project__button content__link">view-project</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="description__item description__item--active project" data-src="react">
+              <h3 class="project__title">
+                Project <span class="project__number"></span> <span class="project__postfix">/ _minesweeper</span>
+              </h3>
+              <div class="project__item project__item--react">
+                <picture>
+                  <source media="(min-width: 1200px)" srcset="./img/project-minesweeper.webp">
+                  <img src="./img/project-minesweeper.webp" alt="Проект Minesweeper" class="project__img">
+                </picture>
+                <div class="project__text-wrapper">
+                  <p class="project__text">Проект "Minesweeper". Классическая игра "Сапер" из стандартной библиотеки
+                    Windows</p>
+                  <a href="https://github.com/Dual1tyxd3v/minesweeper"
+                    class="project__button content__link">view-project</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="description__item description__item--active project" data-src="html">
+              <h3 class="project__title">
+                Project <span class="project__number"></span> <span class="project__postfix">/ _createx</span>
+              </h3>
+              <div class="project__item project__item--html">
+                <picture>
+                  <source media="(min-width: 1200px)" srcset="./img/project-createx.webp">
+                  <img src="./img/project-createx.webp" alt="Проект Createx" class="project__img">
+                </picture>
+                <div class="project__text-wrapper">
+                  <p class="project__text">Проект "Createx". Простой лэндинг (только desktop версия) по макету Figma</p>
+                  <a href="https://github.com/Dual1tyxd3v/createx"
+                    class="project__button content__link">view-project</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="description__item description__item--active project" data-src="react">
+              <h3 class="project__title">
+                Project <span class="project__number"></span> <span class="project__postfix">/ _help</span>
+              </h3>
+              <div class="project__item project__item--react">
+                <picture>
+                  <source media="(min-width: 1200px)" srcset="./img/project-help.webp">
+                  <img src="./img/project-help.webp" alt="Проект Help" class="project__img">
+                </picture>
+                <div class="project__text-wrapper">
+                  <p class="project__text">Проект "Help". Небольшой справочник для личного использования на React</p>
+                  <a href="https://github.com/Dual1tyxd3v/react-help"
+                    class="project__button content__link">view-project</a>
+                </div>
+              </div>
+            </div>
+
             <div class="description__item description__item--active project" data-src="html">
               <h3 class="project__title">
                 Project <span class="project__number"></span> <span class="project__postfix">/ _pink</span>
@@ -214,7 +285,8 @@
                   <img src="./img/project-far-away.webp" alt="Проект Far Away" class="project__img">
                 </picture>
                 <div class="project__text-wrapper">
-                  <p class="project__text">Проект "Far Away". Приложение для отслеживания необходимых вещей в поездке</p>
+                  <p class="project__text">Проект "Far Away". Приложение для отслеживания необходимых вещей в поездке
+                  </p>
                   <a href="https://github.com/Dual1tyxd3v/far-away"
                     class="project__button content__link">view-project</a>
                 </div>
@@ -246,7 +318,8 @@
                   <img src="./img/project-what-to-watch.webp" alt="Проект What to Watch" class="project__img">
                 </picture>
                 <div class="project__text-wrapper">
-                  <p class="project__text">Проект "What to Watch". Личный проект - SPA приложение, с курса HTMLAcademy</p>
+                  <p class="project__text">Проект "What to Watch". Личный проект - SPA приложение, с курса HTMLAcademy
+                  </p>
                   <a href="https://github.com/Dual1tyxd3v/what-to-watch"
                     class="project__button content__link">view-project</a>
                 </div>
@@ -358,7 +431,8 @@
                   <img src="./img/project-natours.webp" alt="Проект Natours" class="project__img">
                 </picture>
                 <div class="project__text-wrapper">
-                  <p class="project__text">Проект "Natours". Продвинутая верстка по макету из курса Advanced Design<br></p>
+                  <p class="project__text">Проект "Natours". Продвинутая верстка по макету из курса Advanced Design<br>
+                  </p>
                   <a href="https://github.com/Dual1tyxd3v/new-css-html-features"
                     class="project__button content__link">view-project</a>
                 </div>
@@ -374,7 +448,8 @@
                   <img src="./img/project-trillo--desktop.webp" alt="Проект Trillo" class="project__img">
                 </picture>
                 <div class="project__text-wrapper">
-                  <p class="project__text">Проект "Trillo". Продвинутая верстка по макету из курса Advanced Design<br></p>
+                  <p class="project__text">Проект "Trillo". Продвинутая верстка по макету из курса Advanced Design<br>
+                  </p>
                   <a href="https://github.com/Dual1tyxd3v/trillo-advanced-CSS-"
                     class="project__button content__link">view-project</a>
                 </div>
@@ -390,12 +465,13 @@
                   <img src="./img/project-nexter--desktop.webp" alt="Проект Nexter" class="project__img">
                 </picture>
                 <div class="project__text-wrapper">
-                  <p class="project__text">Проект "Nexter". Продвинутая верстка по макету из курса Advanced Design<br></p>
-                  <a href="https://github.com/Dual1tyxd3v/nexter"
-                    class="project__button content__link">view-project</a>
+                  <p class="project__text">Проект "Nexter". Продвинутая верстка по макету из курса Advanced Design<br>
+                  </p>
+                  <a href="https://github.com/Dual1tyxd3v/nexter" class="project__button content__link">view-project</a>
                 </div>
               </div>
             </div>
+
             <div class="description__item description__item--active project" data-src="html">
               <h3 class="project__title">
                 Project <span class="project__number"></span> <span class="project__postfix">/ _Forkify</span>
@@ -406,12 +482,14 @@
                   <img src="./img/project-forkify--desktop.webp" alt="Проект Nexter" class="project__img">
                 </picture>
                 <div class="project__text-wrapper">
-                  <p class="project__text">Проект "Forkify". SPA приложение позволяет получать рецепты а также загружать свои</p>
+                  <p class="project__text">Проект "Forkify". SPA приложение позволяет получать рецепты а также загружать
+                    свои</p>
                   <a href="https://github.com/Dual1tyxd3v/forkify"
                     class="project__button content__link">view-project</a>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
