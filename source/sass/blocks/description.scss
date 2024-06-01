@@ -57,13 +57,12 @@
         background-color: #011627;
       }
       &::-webkit-scrollbar-thumb {
-        background-color: $grey; /*Цвет ползунка*/
+        background-color: $grey;
         width: 24px;
       }
     }
     &__content-wrapper {
       padding-top: 65px;
-      height: 100%;
       border-right: 1px solid $border-color;
     }
     &__item[data-src='music'] .description__text-wrapper,

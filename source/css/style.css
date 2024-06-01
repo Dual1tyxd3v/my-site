@@ -695,12 +695,11 @@ img {
     background-color: #011627;
   }
   .description__content::-webkit-scrollbar-thumb {
-    background-color: #607B96; /*Цвет ползунка*/
+    background-color: #607B96;
     width: 24px;
   }
   .description__content-wrapper {
     padding-top: 65px;
-    height: 100%;
     border-right: 1px solid #1E2D3D;
   }
   .description__item[data-src=music] .description__text-wrapper, .description__item[data-src=games] .description__text-wrapper {
