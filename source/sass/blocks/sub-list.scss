@@ -1,8 +1,8 @@
 .sub-list {
   padding: 16px 0;
-  display: none;
+  display: block;
   &--opened {
-    display: block;
+    display: none;
   }
   &__label {
     font-weight: 400;
@@ -13,19 +13,22 @@
     background-position-x: 43px;
     cursor: pointer;
     &--html {
-      background-image: url("../img/icon-html.svg");
+      background-image: url('../img/icon-html.svg');
     }
     &--react {
-      background-image: url("../img/icon-react.svg");
+      background-image: url('../img/icon-react.svg');
+    }
+    &--vue {
+      background-image: url('../img/icon-vue.svg');
     }
     &::before {
-      content: "";
+      content: '';
       display: block;
       width: 19px;
       height: 19px;
       margin-right: 58px;
       background-color: #011627;
-      border: 1px solid #607B96;
+      border: 1px solid #607b96;
       border-radius: 2px;
     }
   }
@@ -35,7 +38,7 @@
     opacity: 0;
     &:checked ~ .sub-list__label::before {
       background-color: $grey;
-      background-image: url("../img/icon-checked.svg");
+      background-image: url('../img/icon-checked.svg');
       background-position: center;
     }
   }
@@ -51,19 +54,19 @@
     line-height: 21px;
     cursor: pointer;
     color: #fff;
-    background-color: #1E2D3D;
+    background-color: #1e2d3d;
     &::before {
-      content: "";
+      content: '';
       display: block;
       width: 6px;
       height: 8.5px;
       background-size: 6px 8.5px;
       margin-right: 13.5px;
-      background-image: url("../img/button-arrow--right.svg");
+      background-image: url('../img/button-arrow--right.svg');
     }
     &--active {
       &::before {
-        background-image: url("../img/button-arrow--down.svg");
+        background-image: url('../img/button-arrow--down.svg');
         margin-right: 11px;
         width: 8.5px;
         height: 6px;
@@ -91,10 +94,10 @@
     }
     &:hover {
       color: #fff;
-      background-color: #263B50;
+      background-color: #263b50;
     }
     &::before {
-      content: "";
+      content: '';
       display: block;
       width: 16.2px;
       height: 14.6px;
@@ -103,55 +106,55 @@
     }
     &--education {
       &::before {
-        background-image: url("../img/icon-education.svg");
+        background-image: url('../img/icon-education.svg');
       }
     }
     &--professionals {
       &::before {
-        background-image: url("../img/icon-professionals.svg");
+        background-image: url('../img/icon-professionals.svg');
       }
     }
     &--interests {
       &::before {
-        background-image: url("../img/icon-interests.svg");
+        background-image: url('../img/icon-interests.svg');
       }
     }
     &--mail {
       &::before {
-        background-image: url("../img/icon-mail.svg");
+        background-image: url('../img/icon-mail.svg');
       }
     }
     &--find {
       &::before {
-        background-image: url("../img/icon-find-me.svg");
+        background-image: url('../img/icon-find-me.svg');
       }
     }
     &--games {
       &::before {
-        background-image: url("../img/icon-games.svg");
+        background-image: url('../img/icon-games.svg');
       }
     }
     &--music {
       &::before {
-        background-image: url("../img/icon-music.svg");
+        background-image: url('../img/icon-music.svg');
       }
     }
     &--films {
       &::before {
-        background-image: url("../img/icon-films.svg");
+        background-image: url('../img/icon-films.svg');
       }
     }
   }
   &__icon {
     margin-right: 9px;
     &--hobbies {
-      fill: #43D9AD;
+      fill: #43d9ad;
     }
     &--contacts {
-      fill: #3A49A4;
+      fill: #3a49a4;
     }
     &--find {
-      fill: #FEA55F;
+      fill: #fea55f;
     }
   }
 }

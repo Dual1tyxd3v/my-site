@@ -483,10 +483,10 @@ img {
 }
 .sub-list {
   padding: 16px 0;
-  display: none;
+  display: block;
 }
 .sub-list--opened {
-  display: block;
+  display: none;
 }
 .sub-list__label {
   font-weight: 400;
@@ -503,6 +503,9 @@ img {
 .sub-list__label--react {
   background-image: url("../img/icon-react.svg");
 }
+.sub-list__label--vue {
+  background-image: url("../img/icon-vue.svg");
+}
 .sub-list__label::before {
   content: "";
   display: block;
@@ -510,7 +513,7 @@ img {
   height: 19px;
   margin-right: 58px;
   background-color: #011627;
-  border: 1px solid #607B96;
+  border: 1px solid #607b96;
   border-radius: 2px;
 }
 .sub-list__checkbox {
@@ -535,7 +538,7 @@ img {
   line-height: 21px;
   cursor: pointer;
   color: #fff;
-  background-color: #1E2D3D;
+  background-color: #1e2d3d;
 }
 .sub-list__button::before {
   content: "";
@@ -574,7 +577,7 @@ img {
 }
 .sub-list__item:hover {
   color: #fff;
-  background-color: #263B50;
+  background-color: #263b50;
 }
 .sub-list__item::before {
   content: "";
@@ -612,13 +615,13 @@ img {
   margin-right: 9px;
 }
 .sub-list__icon--hobbies {
-  fill: #43D9AD;
+  fill: #43d9ad;
 }
 .sub-list__icon--contacts {
-  fill: #3A49A4;
+  fill: #3a49a4;
 }
 .sub-list__icon--find {
-  fill: #FEA55F;
+  fill: #fea55f;
 }
 
 @media (min-width: 1200px) {
@@ -1170,6 +1173,9 @@ img {
 }
 .project__item--react::after {
   background-image: url("../img/icon-project--react.svg");
+}
+.project__item--vue::after {
+  background-image: url("../img/icon-project--vue.svg");
 }
 .project__item--html::after {
   background-image: url("../img/icon-project--html.svg");

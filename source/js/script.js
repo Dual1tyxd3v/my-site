@@ -334,7 +334,7 @@ function changeProjectsSubtitle() {
   }
   projectsSubtitle.textContent = '';
   activeChecks.forEach((check, i) => {
-    projectsSubtitle.textContent += check.dataset.src + (i + 1 === activeChecks.length ? '' : ';');
+    projectsSubtitle.textContent += check.dataset.src + (i + 1 === activeChecks.length ? '' : ',');
   });
 }
 projectsChecks.length && changeProjectsSubtitle();
