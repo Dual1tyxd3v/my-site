@@ -22,12 +22,29 @@ const projectsSubtitle = document.querySelector('.description__subtitle');
 const LETTER_WIDTH = 10.79;
 const PADDING = 54;
 const PREFIX_WIDTH = 129;
+const ANALYTICS_URL = 'https://moexapi.vercel.app/analytics';
 
 // --- WIP
 /* const ZAGONKA_URL = 'http://zagonka1.zagonkov.gb.net';
 const FILMS_API = 'http://localhost:3002/films';
 const FILMS_TITLES = ['@Zagonka new films', '@Zagonka new serials', '@Zagonka new seasons']; */
 //
+async function analytics() {
+  const reffer = document.referrer || null;
+  const page = window.location.href;
+  await fetch(ANALYTICS_URL, {
+    method: 'POST',
+    body: JSON.stringify({
+      reffer,
+      page,
+    }),
+    headers: {
+      'Content-type': 'application/json',
+    },
+  });
+}
+analytics();
+
 const api = {
   GAMES: 'https://moexapi.vercel.app/nclub',
   MESSAGE: 'https://moexapi.vercel.app/message',
